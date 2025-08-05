@@ -131,6 +131,31 @@ export default function Projects() {
         { value: "🇰🇪", label: "For Kenya" },
       ],
     },
+    // --- Kujia Jobs Mtandao entry ---
+    {
+      title: "Kujia Jobs Mtandao",
+      description:
+        "A modern online job board and career platform dedicated to connecting Kenyan job seekers with verified opportunities, career resources, and employer tools. Focused on transparency, accessibility, and empowerment for youth and professionals alike.",
+      image:
+        "/images/kujiajobs-mtandao-hero.png",
+      url: "https://kujia-jobs-mtandao.vercel.app/",
+      features: [
+        "Curated job listings from top Kenyan employers and startups",
+        "Advanced search and filtering for job seekers",
+        "Personalized job alerts and recommendations",
+        "Employer dashboard for posting and managing jobs",
+        "Career resources: CV builder, interview tips, and more",
+        "Mobile-first responsive design for accessibility",
+        "Strict anti-fraud and verification system for listings",
+        "Community-driven Q&A and mentorship forums",
+      ],
+      stats: [
+        { value: "10,000+", label: "Jobs Listed" },
+        { value: "5,000+", label: "Active Users" },
+        { value: "100+", label: "Employers" },
+        { value: "🇰🇪", label: "Kenya Focused" },
+      ],
+    },
   ]
 
   const handleImageLoad = (index) => {

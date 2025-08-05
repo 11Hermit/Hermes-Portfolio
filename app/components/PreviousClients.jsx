@@ -49,6 +49,28 @@ export default function PreviousClients() {
         author: "Gilbert",
       },
     },
+    // --- Kujia Jobs Mtandao entry ---
+    {
+      name: "Kujia Jobs Mtandao",
+      description:
+        "Kenya's trusted online job board and career platform, empowering young professionals and job seekers with verified listings, career resources, and employer tools. Committed to transparency, accessibility, and community support.",
+      logo: "/images/kujia-logo.png",
+      website: "https://kujia-jobs-mtandao.vercel.app/",
+      features: [
+        "Verified job listings from top employers",
+        "Personalized job alerts and recommendations",
+        "Employer dashboard for efficient job posting",
+        "Career resources: CV builder, interview tips, and more",
+        "Mobile-first responsive design",
+        "Community Q&A and mentorship forums",
+        "Strict anti-fraud and listing verification",
+      ],
+      testimonial: {
+        quote:
+          "Kujia Jobs Mtandao has made job searching in Kenya safer, easier, and more transparent. The platform's focus on verified listings and career growth is unmatched.",
+        author: "A Kenyan Professional",
+      },
+    }
   ]
 
   return (
@@ -130,11 +152,23 @@ export default function PreviousClients() {
                         <h3 className="text-3xl font-bold philosophical-text">{client.name}</h3>
                         <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
                           <span className="mr-2">
-                            {client.name === "Rightsify Hydra" ? "AI Music Platform" : "Educational Platform"}
+                            {client.name === "Rightsify Hydra"
+                              ? "AI Music Platform"
+                              : client.name === "ClassifyMe"
+                                ? "Educational Platform"
+                                : client.name === "Kujia Jobs Mtandao"
+                                  ? "Job Board Platform"
+                                  : "Client Platform"}
                           </span>
                           <span className="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600"></span>
                           <span className="ml-2">
-                            {client.name === "Rightsify Hydra" ? "Music Generation" : "Course Recommendation"}
+                            {client.name === "Rightsify Hydra"
+                              ? "Music Generation"
+                              : client.name === "ClassifyMe"
+                                ? "Course Recommendation"
+                                : client.name === "Kujia Jobs Mtandao"
+                                  ? "Career & Job Matching"
+                                  : "Client Service"}
                           </span>
                         </div>
                       </div>
@@ -254,6 +288,45 @@ export default function PreviousClients() {
                             </div>
                           </div>
                         </>
+                      ) : client.name === "Kujia Jobs Mtandao" ? (
+                        <div className="space-y-4 mb-8">
+                          <div className="flex items-start">
+                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
+                              <Users className="w-5 h-5 text-white" />
+                            </div>
+                            <div>
+                              <h5 className="text-white font-medium">Job Board</h5>
+                              <p className="text-white/80 text-sm">Curated jobs for Kenyan professionals</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start">
+                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
+                              <Sparkles className="w-5 h-5 text-white" />
+                            </div>
+                            <div>
+                              <h5 className="text-white font-medium">Verified Listings</h5>
+                              <p className="text-white/80 text-sm">Strict anti-fraud and employer verification</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start">
+                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
+                              <BookOpen className="w-5 h-5 text-white" />
+                            </div>
+                            <div>
+                              <h5 className="text-white font-medium">Career Resources</h5>
+                              <p className="text-white/80 text-sm">CV builder, interview tips, mentorship</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start">
+                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
+                              <MessageSquare className="w-5 h-5 text-white" />
+                            </div>
+                            <div>
+                              <h5 className="text-white font-medium">Community Support</h5>
+                              <p className="text-white/80 text-sm">Q&A forums and personalized job alerts</p>
+                            </div>
+                          </div>
+                        </div>
                       ) : (
                         <div className="space-y-4 mb-8">
                           <div className="flex items-start">
@@ -303,6 +376,9 @@ export default function PreviousClients() {
                       <p className="text-white text-sm italic">
                         {client.name === "Rightsify Hydra"
                           ? "Unlock limitless musical possibilities and use the music for any project or use case. Generate unique, copyright-clear music instantly."
+                          : client.name === "Kujia Jobs Mtandao"
+                            ? "Unlock your career potential with verified job listings, career resources, and community support. Find your dream job today!"
+                            : "Explore Your Path, Discover Your Course. Dive into endless opportunities and find the course that aligns with your interests and ambitions."}
                           : "Explore Your Path, Discover Your Course. Dive into endless opportunities and find the course that aligns with your interests and ambitions."}
                       </p>
                     </div>
