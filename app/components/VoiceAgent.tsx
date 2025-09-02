@@ -1,8 +1,7 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useRef, useEffect, useCallback } from "react"
+import type { JSX } from "react"
+import { useState, useRef, useEffect, useCallback, ReactNode } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Mic, MicOff, Volume2, MessageCircle, X, Send, Type, Play, Mail, MessageSquare } from "lucide-react"
 import ReactMarkdown from "react-markdown"
@@ -20,6 +19,8 @@ interface VoiceMessage {
   timestamp: Date
   audioUrl?: string
 }
+
+
 
 export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,8 +43,8 @@ export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
   const audioChunksRef = useRef<Blob[]>([])
   const audioContextRef = useRef<AudioContext | null>(null)
   const analyserRef = useRef<AnalyserNode | null>(null)
-  const animationFrameRef = useRef<number>()
-  const silenceTimeoutRef = useRef<NodeJS.Timeout>()
+  const animationFrameRef = useRef<number | undefined>(undefined)
+  const silenceTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
   const streamRef = useRef<MediaStream | null>(null)
   const currentAudioRef = useRef<HTMLAudioElement | null>(null)
 
@@ -631,42 +632,44 @@ export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
   }
 
   // Helper function to handle email click
-  const handleEmailClick = () => {
-    window.location.href = "mailto:ashtoneonyango@gmail.com"
+  const handleEmailClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    window.location.href = "mailto:ashtone@wanailabs.org"
   }
 
   // Helper function to handle WhatsApp click
-  const handleWhatsAppClick = () => {
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
     window.open("https://wa.me/qr/YUF73YQORYWJN1", "_blank", "noopener,noreferrer")
   }
 
   // Custom component to render contact buttons
-  const ContactButtons = ({ content }: { content: string }) => {
-    const hasEmail = content.includes("ashtoneonyango@gmail.com")
+  const ContactButtons = ({ content }: { content: string }): React.ReactElement | null => {
+    const hasEmail = content.includes("ashtone@wanailabs.org")
     const hasWhatsApp = content.includes("https://wa.me/qr/YUF73YQORYWJN1")
 
-    if (!hasEmail && !hasWhatsApp) {
-      return null
-    }
+    if (!hasEmail && !hasWhatsApp) return null
 
     return (
-      <div className="mt-3 flex flex-col gap-2">
+      <div className="mt-3 flex flex-wrap gap-2">
         {hasEmail && (
           <motion.button
+            type="button"
             onClick={handleEmailClick}
-            className="flex items-center gap-2 px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors duration-200"
-            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-sm rounded-lg transition-all duration-300"
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
             <Mail className="w-4 h-4" />
-            Send Email
+            Email Ashtone
           </motion.button>
         )}
         {hasWhatsApp && (
           <motion.button
+            type="button"
             onClick={handleWhatsAppClick}
-            className="flex items-center gap-2 px-3 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors duration-200"
-            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-sm rounded-lg transition-all duration-300"
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
             <MessageSquare className="w-4 h-4" />
@@ -679,290 +682,91 @@ export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
 
   return (
     <>
-      {/* Floating Voice Button */}
+      {/* Floating Action Button */}
       <motion.div
-        className={`fixed bottom-8 right-8 z-50 ${className}`}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
+        className={`fixed z-40 ${
+          isOpen ? "bottom-4 right-4 sm:bottom-6 sm:right-6" : "bottom-4 right-4 sm:bottom-6 sm:right-6"
+        } ${className}`}
+        initial={false}
+        animate={{
+          scale: isOpen ? 0 : 1,
+          opacity: isOpen ? 0 : 1,
+          y: isOpen ? 20 : 0,
+        }}
+        transition={{ duration: 0.2 }}
       >
-        {/* Animated Attention Message */}
-        <AnimatePresence>
-          {showAttentionMessage && !isOpen && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="absolute -top-2 -left-2 pointer-events-none"
-            >
-              {/* Curved text path around the button */}
-              <svg width="120" height="120" className="absolute inset-0">
-                <defs>
-                  <path id="circle-path" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" fill="none" />
-                </defs>
-                <motion.text
-                  fontSize="11"
-                  fontWeight="600"
-                  className="fill-purple-600 dark:fill-purple-400"
-                  animate={{
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <textPath href="#circle-path" startOffset="0%">
-                    <motion.tspan
-                      animate={{
-                        startOffset: ["0%", "100%"],
-                      }}
-                      transition={{
-                        duration: 8,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "linear",
-                      }}
-                    >
-                      I'm Hermes, talk to me! 💬 ✨
-                    </motion.tspan>
-                  </textPath>
-                </motion.text>
-              </svg>
-
-              {/* Pulsing background glow */}
-              <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 blur-md"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              />
-
-              {/* Dancing sparkles */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-1 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
-                  style={{
-                    left: `${50 + 35 * Math.cos((i * Math.PI * 2) / 6)}px`,
-                    top: `${50 + 35 * Math.sin((i * Math.PI * 2) / 6)}px`,
-                  }}
-                  animate={{
-                    scale: [0, 1, 0],
-                    opacity: [0, 1, 0],
-                    rotate: [0, 180, 360],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: i * 0.3,
-                    ease: "easeInOut",
-                  }}
-                />
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         <motion.button
           onClick={toggleVoiceAgent}
-          className="relative w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
-          whileHover={{ scale: 1.1 }}
+          className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
+            voiceState === "listening"
+              ? "bg-red-500 hover:bg-red-600"
+              : voiceState === "speaking"
+              ? "bg-green-500 hover:bg-green-600"
+              : "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+          }`}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          animate={
-            showAttentionMessage && !isOpen
-              ? {
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 2, -2, 0],
-                }
-              : {}
-          }
-          transition={
-            showAttentionMessage && !isOpen
-              ? {
-                  duration: 3,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }
-              : {}
-          }
+          aria-label="Toggle Voice Agent"
         >
-          {/* Animated Voice Orb */}
-          <div className="absolute inset-0 rounded-full overflow-hidden">
-            {/* Outer glow rings */}
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-blue-400/30"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.1, 0.3],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              }}
-            />
-
-            {/* Central orb with gradient */}
-            <motion.div
-              className="absolute inset-2 rounded-full bg-gradient-to-br from-purple-400 via-pink-500 to-blue-500"
-              animate={{
-                background:
-                  voiceState === "listening" || voiceState === "continuous-listening"
-                    ? [
-                        "linear-gradient(45deg, #8B5CF6, #EC4899, #3B82F6)",
-                        "linear-gradient(45deg, #3B82F6, #8B5CF6, #EC4899)",
-                        "linear-gradient(45deg, #EC4899, #3B82F6, #8B5CF6)",
-                      ]
-                    : ["linear-gradient(45deg, #8B5CF6, #EC4899, #3B82F6)"],
-              }}
-              transition={{
-                duration: voiceState === "listening" || voiceState === "continuous-listening" ? 1 : 3,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              }}
-            >
-              {/* Inner pulsing effect */}
-              <motion.div
-                className="absolute inset-1 rounded-full bg-white/10 backdrop-blur-sm"
-                animate={{
-                  scale:
-                    voiceState === "listening" || voiceState === "continuous-listening" ? [1, 1.1, 1] : [1, 1.05, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: voiceState === "listening" || voiceState === "continuous-listening" ? 0.5 : 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              />
-
-              {/* Audio level visualization */}
-              {(voiceState === "listening" || voiceState === "continuous-listening") && (
-                <motion.div
-                  className="absolute inset-2 rounded-full bg-white/20"
-                  animate={{
-                    scale: 1 + audioLevel * 0.3,
-                    opacity: 0.4 + audioLevel * 0.4,
-                  }}
-                  transition={{ duration: 0.1 }}
-                />
-              )}
-            </motion.div>
-
-            {/* State indicator icon */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              {(voiceState === "listening" || voiceState === "continuous-listening") && (
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 0.5, repeat: Number.POSITIVE_INFINITY }}
-                >
-                  <Mic className="w-6 h-6 text-white" />
-                </motion.div>
-              )}
-              {voiceState === "processing" && (
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                  className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
-                />
-              )}
-              {voiceState === "speaking" && (
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 0.3, repeat: Number.POSITIVE_INFINITY }}
-                >
-                  <Volume2 className="w-6 h-6 text-white" />
-                </motion.div>
-              )}
-              {(voiceState === "idle" || voiceState === "text-mode") && (
-                <MessageCircle className="w-6 h-6 text-white" />
-              )}
-              {voiceState === "error" && <MicOff className="w-6 h-6 text-white" />}
-            </div>
-          </div>
-
-          {/* Pulse effect for idle state */}
-          {(voiceState === "idle" || voiceState === "text-mode") && (
-            <motion.div
-              className="absolute inset-0 rounded-full bg-purple-400/20"
-              animate={{
-                scale: [1, 1.5],
-                opacity: [0.5, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeOut",
-              }}
-            />
+          {voiceState === "listening" ? (
+            <Mic className="w-5 h-5 sm:w-6 sm:h-6" />
+          ) : voiceState === "speaking" ? (
+            <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" />
+          ) : (
+            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
           )}
         </motion.button>
       </motion.div>
 
-      {/* Voice Chat Panel - Moved further left to avoid section indicators */}
+      {/* Voice Chat Panel */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed bottom-28 right-24 w-96 bg-white/95 dark:bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 dark:border-gray-700/20 z-40"
+            className="fixed bottom-20 right-4 left-4 sm:left-auto sm:right-6 sm:w-96 max-w-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 dark:border-gray-700/20 z-40"
+            style={{ maxHeight: 'calc(100vh - 120px)' }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-200/50 dark:border-gray-700/50">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
-                  {isTextMode ? (
-                    <Type className="w-4 h-4 text-white" />
-                  ) : (
-                    <MessageCircle className="w-4 h-4 text-white" />
-                  )}
+            <div className="p-3 sm:p-4 border-b border-gray-200/50 dark:border-gray-700/50">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center flex-shrink-0">
+                    {isTextMode ? (
+                      <Type className="w-3.5 h-3.5 text-white" />
+                    ) : (
+                      <MessageCircle className="w-3.5 h-3.5 text-white" />
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base truncate">Hermes</h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
+                      {isTextMode ? "Text Mode" : isContinuousMode ? "Continuous Voice" : "Voice Mode"} • Ashtone's AI Assistant
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">Hermes</h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
-                    {isTextMode ? "Text Mode" : isContinuousMode ? "Continuous Voice" : "Voice Mode"} • Ashtone's AI
-                    Assistant
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {/* Mode Toggle */}
-                <button
-                  onClick={isTextMode ? switchToVoiceMode : switchToTextMode}
-                  className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-xs"
-                  title={isTextMode ? "Switch to voice mode" : "Switch to text mode"}
-                  disabled={!voiceServiceAvailable && !isTextMode}
-                >
-                  {isTextMode ? <Mic className="w-4 h-4" /> : <Type className="w-4 h-4" />}
-                </button>
-                {conversation.length > 0 && (
+                <div className="flex items-center gap-2">
                   <button
-                    onClick={clearConversation}
+                    onClick={isTextMode ? switchToVoiceMode : switchToTextMode}
                     className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-xs"
-                    title="Clear conversation"
+                    title={isTextMode ? "Switch to voice mode" : "Switch to text mode"}
+                    disabled={!voiceServiceAvailable && !isTextMode}
                   >
-                    Clear
+                    {isTextMode ? <Mic className="w-4 h-4" /> : <Type className="w-4 h-4" />}
                   </button>
-                )}
-                <button
-                  onClick={toggleVoiceAgent}
-                  className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                >
-                  <X className="w-4 h-4" />
-                </button>
+                  <button
+                    onClick={toggleVoiceAgent}
+                    className="p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Content */}
-            <div className="p-4 space-y-4 max-h-80 overflow-y-auto">
+            {/* Messages */}
+            <div className="h-64 sm:h-80 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
               {conversation.length === 0 && !error && (
                 <div className="text-center py-4">
                   <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 flex items-center justify-center">
@@ -983,7 +787,6 @@ export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
                 </div>
               )}
 
-              {/* Conversation History */}
               {conversation.map((message) => (
                 <div
                   key={message.id}
@@ -1000,20 +803,38 @@ export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
                       }`}
                     >
                       {message.type === "assistant" ? (
-                        <div>
+                        <div className="prose prose-sm max-w-none dark:prose-invert prose-purple">
                           <ReactMarkdown
-                            className="prose prose-sm max-w-none dark:prose-invert prose-purple"
                             components={{
-                              p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
-                              ul: ({ children }) => <ul className="mb-2 pl-4">{children}</ul>,
-                              li: ({ children }) => <li className="mb-1">{children}</li>,
-                              strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
-                              a: ({ href, children }) => (
+                              p: ({ children }: { children?: ReactNode }) => (
+                                <p className="mb-2 last:mb-0">{children}</p>
+                              ),
+                              ul: ({ children }: { children?: ReactNode }) => (
+                                <ul className="mb-2 pl-4">{children}</ul>
+                              ),
+                              li: ({ children }: { children?: ReactNode }) => (
+                                <li className="mb-1">{children}</li>
+                              ),
+                              strong: ({ children }: { children?: ReactNode }) => (
+                                <strong className="font-semibold">{children}</strong>
+                              ),
+                              a: ({
+                                node,
+                                href = '#',
+                                children,
+                                ...props
+                              }: {
+                                node?: any;
+                                href?: string;
+                                children?: ReactNode;
+                                [key: string]: any;
+                              }) => (
                                 <a
                                   href={href}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-200 underline"
+                                  {...props}
                                 >
                                   {children}
                                 </a>
@@ -1051,7 +872,7 @@ export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
             </div>
 
             {/* Controls */}
-            <div className="p-4 border-t border-gray-200/50 dark:border-gray-700/50">
+            <div className="p-3 sm:p-4 border-t border-gray-200/50 dark:border-gray-700/50">
               {isTextMode ? (
                 <form onSubmit={handleTextSubmit} className="flex gap-2">
                   <input
@@ -1082,12 +903,11 @@ export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
                 </form>
               ) : (
                 <div className="space-y-3">
-                  {/* Voice Controls */}
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="flex items-center justify-center gap-2 sm:gap-3">
                     <motion.button
                       onClick={handleVoiceAction}
                       disabled={voiceState === "processing" || voiceState === "speaking" || !voiceServiceAvailable}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                         isRecording
                           ? "bg-red-500 hover:bg-red-600 text-white"
                           : "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
@@ -1097,7 +917,7 @@ export default function VoiceAgent({ className = "" }: VoiceAgentProps) {
                     >
                       {isRecording ? (
                         <>
-                          <MicOff className="w-4 h-4" />
+                          <div className="w-2 h-2 rounded-full bg-white mr-1.5 animate-pulse" />
                           Stop Recording
                         </>
                       ) : (

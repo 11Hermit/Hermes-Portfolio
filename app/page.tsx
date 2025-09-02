@@ -188,10 +188,13 @@ export default function Home() {
       <TopNavigation activeSection={activeSection} onSectionChange={handleSectionChange} />
 
       <div className="relative">
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {sections.map((section) => {
             const SectionComponent = section.component
             const isActive = activeSection === section.id
+
+            // Only render the active section to prevent multiple children in AnimatePresence
+            if (!isActive) return null
 
             return (
               <motion.div
@@ -200,9 +203,9 @@ export default function Home() {
                 className={`fixed inset-0 ${section.bgClass}`}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{
-                  opacity: isActive ? 1 : 0,
-                  scale: isActive ? 1 : 0.95,
-                  zIndex: isActive ? 10 : 1,
+                  opacity: 1,
+                  scale: 1,
+                  zIndex: 10,
                 }}
                 exit={{ opacity: 0, scale: 1.05 }}
                 transition={{
@@ -210,7 +213,7 @@ export default function Home() {
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
                 style={{
-                  pointerEvents: isActive ? "auto" : "none",
+                  pointerEvents: "auto",
                 }}
               >
                 <FullPageSection id={section.id} isActive={isActive} className={section.bgClass}>

@@ -24,7 +24,7 @@ const HERMES_SYSTEM_PROMPT = `You are Hermes, Ashtone Onyango's professional AI 
 - Built AI solutions for 11+ clients (healthcare, real estate, fintech)
 - Generated $2M+ in cost savings through intelligent automation
 - Key projects: Rightsify Hydra (3M+ users), MarketReady.ai, TenderAI
-- Contact: ashtoneonyango@gmail.com, +254 740 497975
+- Contact: ashtone@wanailabs.org, +254 740 497975
 - WhatsApp: https://wa.me/qr/YUF73YQORYWJN1
 
 ## Communication Guidelines:
@@ -505,7 +505,7 @@ export async function POST(request: NextRequest) {
 
       // Provide a fallback response
       aiResponse =
-        "I apologize, but I'm having trouble processing your request right now. Please try asking again, or feel free to contact Ashtone directly at ashtoneonyango@gmail.com for immediate assistance."
+        "I apologize, but I'm having trouble processing your request right now. Please try asking again, or feel free to contact Ashtone directly at ashtone@wanailabs.org for immediate assistance."
 
       console.log("Using fallback response due to AI error")
     }

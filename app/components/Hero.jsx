@@ -123,7 +123,7 @@ export default function Hero() {
                 <Linkedin className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </a>
               <a
-                href="mailto:ashtoneonyango@gmail.com"
+                href="mailto:ashtone@wanailabs.org"
                 className="p-3 rounded-full glass-effect hover:bg-white/90 dark:hover:bg-gray-800/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="Email Contact"
               >
@@ -163,35 +163,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <motion.div
-            className="lg:w-2/5 flex justify-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
-              {/* Clean, professional image container without decorative overlays */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl glass-card">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0812.jpg-jQSxWaycmtpBR7IUnsPV8C8L3vlrQ2.jpeg"
-                  alt="Ashtone Onyango"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                {/* Subtle gradient overlay for professional look */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-              </div>
 
-              {/* Minimal decorative elements */}
-              <div className="absolute -top-4 -right-4 p-3 rounded-full glass-effect shadow-lg">
-                <Brain className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 p-3 rounded-full glass-effect shadow-lg">
-                <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
 

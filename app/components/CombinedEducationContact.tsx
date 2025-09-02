@@ -123,13 +123,13 @@ export default function CombinedEducationContact() {
             </h3>
             <div className="space-y-6">
               <a
-                href="mailto:ashtoneonyango@gmail.com"
+                href="mailto:ashtone@wanailabs.org"
                 className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 group"
               >
                 <div className="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/30 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors duration-300 mr-3">
                   <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 </div>
-                ashtoneonyango@gmail.com
+                ashtone@wanailabs.org
               </a>
               <a
                 href="tel:+254740497975"
