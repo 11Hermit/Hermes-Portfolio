@@ -35,19 +35,19 @@ export default function Projects() {
       ],
     },
     {
-      title: "Alfire POS System",
+      title: "Bootyque POS",
       description:
-        "Comprehensive Point of Sale system designed specifically for motorcycle spare parts retailers, featuring inventory management, real-time sales processing, and business analytics.",
+        "Effortless Style. Perfected Sales. A beautiful point-of-sale system designed for modern boutiques and fashion businesses to track stock, process sales, and grow sustainably.",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%20from%202025-07-27%2019-46-30-hee5Rsg2jhsHN66RWbh56lkX2l6nLp.png",
-      url: "https://alfire-sooty.vercel.app/",
+        "https://res.cloudinary.com/di2rbwzyd/image/upload/v1764925134/bootyque_yegnb9.png",
+      url: "https://bootyque.wanailabs.org",
       features: [
-        "Mobile-first POS interface with touch-friendly design",
-        "Real-time inventory management with stock alerts",
-        "Automated receipt generation and sharing",
-        "Comprehensive business analytics and reporting",
-        "Multi-category product organization (Brakes, Engine, Electrical)",
-        "Profit tracking and margin analysis per transaction",
+        "Elegant POS interface designed for fashion businesses",
+        "Real-time inventory tracking with style categorization",
+        "Customer relationship management for fashion clientele",
+        "Profit tracking and business analytics dashboard",
+        "Multi-outlet support with role-based access control",
+        "Cloud-based system accessible from anywhere, anytime",
         "Supabase backend with real-time data synchronization",
         "Progressive Web App with offline capabilities",
       ],
@@ -284,7 +284,7 @@ export default function Projects() {
                           <Shield className="w-5 h-5 mr-2 text-blue-600" />
                         ) : project.title === "TenderAI" ? (
                           <Code className="w-5 h-5 mr-2 text-purple-600" />
-                        ) : project.title === "Alfire POS System" ? (
+                        ) : project.title === "Bootyque POS" ? (
                           <Code className="w-5 h-5 mr-2 text-orange-600" />
                         ) : (
                           <Code className="w-5 h-5 mr-2 text-indigo-600" />
@@ -294,8 +294,8 @@ export default function Projects() {
                             ? "School Security & Biometric Systems"
                             : project.title === "TenderAI"
                               ? "AI-Powered Tender Analysis"
-                              : project.title === "Alfire POS System"
-                                ? "Motorcycle Parts POS System"
+                              : project.title === "Bootyque POS"
+                                ? "Fashion Boutique POS System"
                                 : "AI-Powered Real Estate Data Processing"}
                         </span>
                       </div>

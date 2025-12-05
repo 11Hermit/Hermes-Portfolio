@@ -152,7 +152,7 @@ export async function POST(request: NextRequest) {
     try {
       console.log("Generating AI response for text message...")
       const model = genAI.getGenerativeModel({
-        model: "gemini-2.0-flash-exp",
+        model: "gemini-2.0-flash",
         generationConfig: {
           maxOutputTokens: 1000,
           temperature: 0.7,
