@@ -1,56 +1,48 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Brain, Bot, Database, Cloud, Code2, Server, Cpu, GitBranch } from "lucide-react"
+import { Brain, Bot, Database, Cloud, Code2, Server, Cpu, GitBranch, Trophy } from "lucide-react"
 
 const skills = [
   {
     icon: Brain,
-    name: "Generative AI & LLM Systems",
-    tech: "OpenAI GPT-4/o1, Claude, LangChain, HuggingFace",
-    color: "text-purple-500",
+    name: "LLMs & Generative AI",
+    description: "GPT-4o, Claude, Gemini — fine-tuned, RAG-augmented, and deployed to production with eval frameworks and prompt optimization pipelines.",
   },
   {
     icon: Bot,
     name: "Agentic AI Systems",
-    tech: "CrewAI, OpenAI Agents SDK, n8n Workflow",
-    color: "text-blue-500",
+    description: "Multi-agent orchestration using CrewAI and OpenAI Agents SDK. Context management, tool-calling, and long-running workflows that handle real enterprise load.",
   },
   {
     icon: Database,
     name: "AI Data Pipelines",
-    tech: "Apache Spark, Kafka, Airbyte, BigQuery",
-    color: "text-green-500",
+    description: "Apache Spark, Kafka, Airbyte, and BigQuery pipelines processing millions of records daily. Built for scale, not just for demos.",
   },
   {
     icon: Cloud,
     name: "Cloud AI Infrastructure",
-    tech: "AWS SageMaker, Azure OpenAI, GCP Vertex AI",
-    color: "text-yellow-500",
+    description: "Production deployments on AWS SageMaker, Azure OpenAI, and GCP Vertex AI — with CI/CD, Docker, Kubernetes, and monitoring baked in from day one.",
   },
   {
     icon: Code2,
     name: "Full-Stack AI Development",
-    tech: "React.js, Next.js, Python, FastAPI",
-    color: "text-red-500",
+    description: "End-to-end from model to interface. Python backends, React frontends, GraphQL APIs — everything needed to ship a working AI product, not just a model.",
   },
   {
     icon: Server,
     name: "Backend AI Systems",
-    tech: "Node.js, .NET Core, GraphQL APIs",
-    color: "text-indigo-500",
+    description: "FastAPI, Express.js, and GraphQL (Graphene/Apollo) backends handling high-throughput AI inference with vector database integration and caching.",
   },
   {
     icon: GitBranch,
     name: "MLOps & Model Management",
-    tech: "CI/CD for AI, Model Versioning, A/B Testing",
-    color: "text-purple-500",
+    description: "Model versioning, A/B testing, deployment pipelines, and monitoring. Cut deployment time from 4 hours to 15 minutes using Docker and Kubernetes CI/CD.",
   },
   {
     icon: Cpu,
     name: "AI Model Optimization",
-    tech: "Model Quantization, GPU Optimization",
-    color: "text-orange-500",
+    description: "Latency reduction through quantization, caching strategies, and model distillation. 70% latency reduction while maintaining 99.9% accuracy on production systems.",
   },
 ]
 
@@ -64,39 +56,63 @@ export default function CombinedExpertise() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-5xl font-bold mb-6 philosophical-text">AI Engineering Expertise</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-          Senior AI Software Engineer with 5+ years of hands-on experience architecting and deploying production AI
-          systems that drive measurable business outcomes. I specialize in building sophisticated AI agents and custom
-          LLM solutions with a track record of reducing operational costs by 60-70% while improving customer
-          satisfaction scores by 85%.
+        <h2 
+          className="text-5xl font-bold mb-6 hero-heading"
+          style={{ color: 'var(--color-text)' }}
+        >
+          AI Engineering Expertise
+        </h2>
+        <p 
+          className="text-xl max-w-4xl mx-auto leading-relaxed"
+          style={{ color: 'var(--color-text-muted)' }}
+        >
+          I don't build AI demos — I build systems that survive production. Five years of shipping 
+          LLM pipelines, agentic workflows, and data infrastructure for clients in healthcare, fintech, 
+          and enterprise. The metric I care about: does it work when real users hit it?
         </p>
       </motion.div>
 
-      {/* Key Metrics */}
+      {/* Key Metrics - Flat Dark Surface with Teal Numbers */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white"
+        className="mb-12 rounded-2xl p-8 stats-banner"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
-            <div className="text-4xl font-bold">5+</div>
-            <div className="text-sm opacity-90">Years AI Development</div>
+            <div className="text-4xl font-bold stat-number">5+</div>
+            <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Yrs Production AI</div>
           </div>
           <div>
-            <div className="text-4xl font-bold">11+</div>
-            <div className="text-sm opacity-90">AI Client Projects</div>
+            <div className="text-4xl font-bold stat-number">20+</div>
+            <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Systems Deployed</div>
           </div>
           <div>
-            <div className="text-4xl font-bold">$2M+</div>
-            <div className="text-sm opacity-90">Cost Savings Generated</div>
+            <div className="text-4xl font-bold stat-number">KES 2M+</div>
+            <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Savings Generated</div>
           </div>
           <div>
-            <div className="text-4xl font-bold">99.9%</div>
-            <div className="text-sm opacity-90">AI System Uptime</div>
+            <div className="text-4xl font-bold stat-number">99.9%</div>
+            <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Uptime Maintained</div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Huawei Award Recognition */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="recognition-strip mb-12"
+      >
+        <Trophy className="w-8 h-8 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+        <div>
+          <div className="font-semibold" style={{ color: 'var(--color-text)' }}>Huawei Global Innovator Award</div>
+          <div className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+            Johannesburg, South Africa · April 2022 · IoT + Neural Network pneumonia detection · 80% accuracy
           </div>
         </div>
       </motion.div>
@@ -110,14 +126,26 @@ export default function CombinedExpertise() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-purple-200 dark:hover:border-purple-800 group h-full"
+            className="expertise-card p-6 h-full group cursor-pointer"
           >
-            <div className="flex flex-col items-center text-center">
-              <div className="p-4 rounded-lg bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 mb-4">
-                <skill.icon className={`w-8 h-8 ${skill.color}`} />
+            <div className="flex flex-col">
+              <div 
+                className="p-3 rounded-lg mb-4 w-fit card-icon-bg"
+              >
+                <skill.icon className="w-6 h-6 card-icon" />
               </div>
-              <h3 className="text-lg font-semibold dark:text-white mb-2">{skill.name}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{skill.tech}</p>
+              <h3 
+                className="text-lg font-semibold mb-2 card-title"
+                style={{ color: 'var(--color-text)' }}
+              >
+                {skill.name}
+              </h3>
+              <p 
+                className="text-sm leading-relaxed"
+                style={{ color: 'var(--color-text-muted)' }}
+              >
+                {skill.description}
+              </p>
             </div>
           </motion.div>
         ))}

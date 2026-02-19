@@ -19,38 +19,37 @@ const sections = [
   {
     id: "hero",
     component: Hero,
-    bgClass:
-      "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-indigo-900 dark:to-purple-900",
+    bgClass: "section-base",
   },
   {
     id: "expertise",
     component: CombinedExpertise,
-    bgClass: "bg-gradient-to-b from-indigo-50 to-gray-50 dark:from-indigo-900 dark:to-gray-900",
+    bgClass: "section-surface",
   },
   {
     id: "projects",
     component: Projects,
-    bgClass: "bg-gradient-to-b from-gray-50 to-purple-50 dark:from-gray-900 dark:to-purple-900",
+    bgClass: "section-base",
   },
   {
     id: "blog",
     component: Blog,
-    bgClass: "bg-gradient-to-b from-purple-50 to-pink-50 dark:from-purple-900 dark:to-pink-900",
+    bgClass: "section-surface",
   },
   {
     id: "philosophy",
     component: CombinedPhilosophy,
-    bgClass: "bg-gradient-to-b from-purple-50 to-indigo-50 dark:from-purple-900 dark:to-indigo-900",
+    bgClass: "section-base",
   },
   {
     id: "services",
     component: CombinedServices,
-    bgClass: "bg-gradient-to-b from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900",
+    bgClass: "section-surface",
   },
   {
     id: "education",
     component: CombinedEducationContact,
-    bgClass: "bg-gradient-to-b from-indigo-50 to-purple-50 dark:from-indigo-900 dark:to-purple-900",
+    bgClass: "section-base",
   },
 ]
 
@@ -233,8 +232,8 @@ export default function Home() {
             onClick={() => handleSectionChange(section.id)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               activeSection === section.id
-                ? "bg-gradient-to-r from-blue-600 to-purple-600 scale-125"
-                : "bg-gray-400/50 hover:bg-gray-400/70"
+                ? "scroll-dot active scale-125"
+                : "scroll-dot hover:opacity-70"
             }`}
             aria-label={`Go to section ${index + 1}`}
           />
@@ -251,7 +250,10 @@ export default function Home() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+            <div 
+              className="w-8 h-8 border-2 border-t-transparent rounded-full animate-spin"
+              style={{ borderColor: 'var(--color-accent)', borderTopColor: 'transparent' }}
+            />
           </motion.div>
         )}
       </AnimatePresence>

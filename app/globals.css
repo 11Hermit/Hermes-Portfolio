@@ -2,16 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-blue-50: rgb(239, 246, 255);
-  --color-indigo-50: rgb(238, 242, 255);
-  --color-purple-50: rgb(250, 245, 255);
-  --color-gray-50: rgb(249, 250, 251);
+/* Import Plus Jakarta Sans for hero typography */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-  --color-gray-900: rgb(17, 24, 39);
-  --color-indigo-900: rgb(49, 46, 129);
-  --color-purple-900: rgb(76, 29, 149);
-  --color-blue-900: rgb(30, 58, 138);
+:root {
+  /* Core backgrounds — dark technical feel */
+  --color-bg: #0D0F14;
+  --color-surface: #141720;
+  --color-surface-2: #1C2030;
+  --color-border: #252A3A;
+  --color-border-light: #303650;
+
+  /* Text — warm white, muted secondary */
+  --color-text: #E8EAF0;
+  --color-text-muted: #7A8299;
+  --color-text-dim: #4A5268;
+
+  /* Accent — single teal-cyan */
+  --color-accent: #00C9A7;
+  --color-accent-dim: rgba(0, 201, 167, 0.1);
+  --color-accent-glow: rgba(0, 201, 167, 0.25);
+  --color-accent-hover: #00E5BF;
+
+  /* Stat/metric highlight */
+  --color-stat: #00C9A7;
+
+  /* Light mode overrides */
+  --color-bg-light: #F8F9FC;
+  --color-surface-light: #FFFFFF;
+  --color-accent-light: #00A88C;
+  --color-text-light: #1A1D2E;
+  --color-border-light-mode: #E2E5EF;
+}
+
+/* Light mode theme */
+[data-theme="light"] {
+  --color-bg: var(--color-bg-light);
+  --color-surface: var(--color-surface-light);
+  --color-surface-2: #F1F3F9;
+  --color-border: var(--color-border-light-mode);
+  --color-border-light: #D1D5E0;
+  --color-text: var(--color-text-light);
+  --color-text-muted: #5A6278;
+  --color-text-dim: #8A92A8;
+  --color-accent: var(--color-accent-light);
+  --color-accent-dim: rgba(0, 168, 140, 0.1);
+  --color-accent-glow: rgba(0, 168, 140, 0.2);
 }
 
 html {
@@ -19,15 +55,12 @@ html {
 }
 
 body {
-  @apply text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-900 transition-colors duration-300;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   overflow-x: hidden;
 }
 
 @layer utilities {
-  .animate-gradient-x {
-    animation: gradient-x 15s ease infinite;
-  }
-
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -42,16 +75,6 @@ body {
 
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  @keyframes gradient-x {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
   }
 
   @keyframes float {
@@ -74,82 +97,104 @@ body {
     }
   }
 
+  /* Glass effect with new colors */
   .glass-effect {
-    @apply bg-white/70 dark:bg-gray-800/70 backdrop-blur-md;
+    background: rgba(20, 23, 32, 0.7);
+    backdrop-blur: 12px;
+    border: 1px solid var(--color-border);
+  }
+
+  [data-theme="light"] .glass-effect {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--color-border-light-mode);
   }
 
   .glass-card {
-    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/20 dark:border-gray-700/20 shadow-xl;
+    background: var(--color-surface);
+    backdrop-blur: 8px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
   }
 
-  .philosophical-gradient {
-    @apply bg-gradient-to-br from-blue-600/10 via-indigo-600/10 to-purple-600/10 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20;
+  [data-theme="light"] .glass-card {
+    background: var(--color-surface-light);
+    border: 1px solid var(--color-border-light-mode);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Section backgrounds */
+  .section-base {
+    background: var(--color-bg);
+  }
+
+  .section-surface {
+    background: var(--color-surface);
   }
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 222 20% 6%;
+    --foreground: 220 20% 93%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 222 15% 12%;
+    --muted-foreground: 220 15% 55%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 20% 8%;
+    --popover-foreground: 220 20% 93%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 20% 10%;
+    --card-foreground: 220 20% 93%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 222 15% 18%;
+    --input: 222 15% 18%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 168 100% 40%;
+    --primary-foreground: 222 20% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 222 15% 15%;
+    --secondary-foreground: 220 20% 93%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 168 100% 40%;
+    --accent-foreground: 222 20% 6%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --ring: 215 20.2% 65.1%;
+    --ring: 168 100% 40%;
 
     --radius: 0.5rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  [data-theme="light"] {
+    --background: 220 20% 98%;
+    --foreground: 222 20% 12%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 222 15% 45%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 20% 12%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 12%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 168 100% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 222 20% 12%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 168 100% 35%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
 
-    --ring: 217.2 32.6% 17.5%;
+    --ring: 168 100% 35%;
   }
 }
 
@@ -162,22 +207,180 @@ body {
   }
 }
 
-/* Philosophical Elements */
+/* Hero typography */
+.hero-name, .hero-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* Stats styling */
+.stat-number {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+/* Section labels */
+.section-label {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* Card titles */
+.card-title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Primary button styling */
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Secondary button styling */
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Client/Project cards */
+.client-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.client-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+/* Expertise/Philosophy cards */
+.expertise-card, .philosophy-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.expertise-card:hover, .philosophy-card:hover {
+  border-color: var(--color-accent-glow);
+  background: var(--color-surface-2);
+}
+
+/* Card icon backgrounds */
+.card-icon-bg {
+  background: var(--color-accent-dim);
+  border-radius: 10px;
+}
+
+.card-icon {
+  color: var(--color-accent);
+}
+
+/* Stats banner */
+.stats-banner {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Navigation active state */
+.nav-item.active {
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-accent);
+  border-radius: 6px;
+  color: var(--color-accent);
+}
+
+/* Social buttons */
+.social-btn {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.social-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Scroll dots */
+.scroll-dot {
+  background: var(--color-border);
+}
+
+.scroll-dot.active {
+  background: var(--color-accent);
+}
+
+/* Chatbot trigger */
+.chatbot-trigger {
+  background: var(--color-accent);
+}
+
+/* Recognition strip (Huawei award) */
+.recognition-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--color-accent-dim);
+  border: 1px solid rgba(0, 201, 167, 0.2);
+  border-radius: 8px;
+  margin: 24px 0;
+}
+
+/* Subtle orb elements (replacing purple gradient orbs) */
 .orb {
-  @apply absolute rounded-full opacity-30 blur-xl;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, rgba(168, 85, 247, 0.4) 70%);
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.04;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+  filter: blur(40px);
 }
 
-.flow-line {
-  @apply absolute h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent;
+/* Hero subtle depth glow */
+.hero-glow {
+  background-image: radial-gradient(
+    ellipse 800px 600px at 70% 50%,
+    rgba(0, 201, 167, 0.04) 0%,
+    transparent 70%
+  );
 }
 
-.philosophical-circle {
-  @apply absolute rounded-full border border-indigo-300/30 dark:border-indigo-700/30;
-}
-
+/* Philosophical text (now teal instead of gradient) */
 .philosophical-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400;
+  color: var(--color-accent);
+}
+
+/* Flow lines */
+.flow-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-border), transparent);
 }
 
 /* Smooth section transitions */

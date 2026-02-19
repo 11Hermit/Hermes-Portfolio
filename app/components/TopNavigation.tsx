@@ -37,7 +37,8 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-white/10 dark:border-gray-700/20"
+      className="fixed top-0 left-0 right-0 z-50 glass-effect"
+      style={{ borderBottom: '1px solid var(--color-border)' }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -50,10 +51,23 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">A</span>
+            <div 
+              className="w-10 h-10 rounded-full flex items-center justify-center"
+              style={{ backgroundColor: 'var(--color-accent)' }}
+            >
+              <span 
+                className="font-bold text-lg"
+                style={{ color: 'var(--color-bg)' }}
+              >
+                A
+              </span>
             </div>
-            <span className="text-xl font-bold philosophical-text hidden sm:block">Ashtone Onyango</span>
+            <span 
+              className="text-xl font-bold hidden sm:block hero-heading"
+              style={{ color: 'var(--color-text)' }}
+            >
+              Ashtone Onyango
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -66,20 +80,17 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
                 <motion.button
                   key={item.id}
                   onClick={() => onSectionChange(item.id)}
-                  className={`
-                    relative px-4 py-2 rounded-full transition-all duration-300 flex items-center space-x-2
-                    ${
-                      isActive
-                        ? "text-white"
-                        : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                    }
-                  `}
+                  className="relative px-4 py-2 rounded-full transition-all duration-300 flex items-center space-x-2"
+                  style={{ 
+                    color: isActive ? 'var(--color-bg)' : 'var(--color-text-muted)'
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {isActive && (
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
+                      className="absolute inset-0 rounded-full"
+                      style={{ backgroundColor: 'var(--color-accent)' }}
                       layoutId="activeBackground"
                       initial={false}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -101,7 +112,8 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+              className="md:hidden p-2 rounded-lg focus:outline-none"
+              style={{ color: 'var(--color-text-muted)' }}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -128,19 +140,19 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
                     <button
                       key={item.id}
                       onClick={() => handleNavigation(item.id)}
-                      className={`
-                        w-full flex items-center px-4 py-3 rounded-lg transition-colors
-                        ${
-                          isActive
-                            ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
-                            : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        }
-                      `}
+                      className="w-full flex items-center px-4 py-3 rounded-lg transition-colors"
+                      style={{
+                        backgroundColor: isActive ? 'var(--color-accent-dim)' : 'transparent',
+                        color: isActive ? 'var(--color-accent)' : 'var(--color-text)'
+                      }}
                     >
                       <Icon className="w-5 h-5 mr-3" />
                       <span className="text-sm font-medium">{item.label}</span>
                       {isActive && (
-                        <span className="ml-auto w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400" />
+                        <span 
+                          className="ml-auto w-2 h-2 rounded-full"
+                          style={{ backgroundColor: 'var(--color-accent)' }}
+                        />
                       )}
                     </button>
                   )

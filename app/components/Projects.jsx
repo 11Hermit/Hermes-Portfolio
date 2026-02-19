@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ExternalLink, Code, ArrowRight, Shield, Bell, MessageSquare } from "lucide-react"
+import { ExternalLink, Code, ArrowRight, Shield, Bell, MessageSquare, Youtube, FlaskConical } from "lucide-react"
 import Image from "next/image"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
 import { useState } from "react"
@@ -10,6 +10,56 @@ export default function Projects() {
   const [imageLoaded, setImageLoaded] = useState({})
 
   const projects = [
+    {
+      title: "The Action Foundation (TAF) — AI Caregiver Support Ecosystem",
+      description:
+        "Multi-modal AI support system for caregivers of children with disabilities, bridging critical information gaps across Sub-Saharan Africa. Developed an empathetic, intelligent WhatsApp chatbot and admin ecosystem. The system leverages a custom RAG architecture to provide instant, accurate answers from a specialized medical and legal knowledge base, serving a vulnerable community with real-time support.",
+      image: "/images/mlezibora.png",
+      url: "https://aichat.theactionfoundationkenya.org",
+      demoUrl: "https://youtu.be/ThHj96FBxKU?si=_W0rEQUzO7_qdkKo",
+      features: [
+        "Intelligent AI Assistant with knowledge-base prioritization",
+        "Seamless WhatsApp integration for high accessibility",
+        "Comprehensive Staff Admin Dashboard for conversation management and analytics",
+        "Multi-modal knowledge management (Documents, Videos, Media)",
+        "Custom RAG architecture for specialized medical and legal queries",
+        "Empathetic conversational design for sensitive healthcare contexts",
+        "Real-time support serving vulnerable communities across Sub-Saharan Africa",
+        "Built with Engineering Rigor: Python, LLMs, Vector Databases, React",
+      ],
+      techStack: "WhatsApp API · Python · RAG Architecture · LLMs · Vector Databases · React",
+      stats: [
+        { value: "1,000+", label: "Caregivers Supported" },
+        { value: "95%", label: "Information Accuracy" },
+        { value: "Instant", label: "Response Time" },
+        { value: "24/7", label: "Resource Availability" },
+      ],
+    },
+    {
+      title: "CDIE UMS — Smart Lab Orchestration & SOP Automation",
+      description:
+        "A comprehensive Laboratory Management System for Kenyatta University, featuring AI-driven SOP automation to accelerate student research and practical preparation. Architected a centralized platform to streamline laboratory operations and research productivity. Integrated a specialized AI layer that automates the understanding and assessment of Lab Standard Operating Procedures (SOPs), transforming dense technical documentation into interactive, time-saving preparation modules for students and researchers.",
+      image: "/images/cdie.png",
+      url: "https://app.cdie.co.ke",
+      demoUrl: "https://youtu.be/lrh9dhsFyHc?si=ZONmBUTOarUqLWMi",
+      features: [
+        "AI-Automated SOP Understanding & Assessment",
+        "Centralized Laboratory Resource Tracking",
+        "Real-time Research Analytics Dashboard",
+        "Equipment Booking & Scheduling System",
+        "Interactive Modules transforming dense SOPs into digestible formats",
+        "LLM-powered documentation processing for institutional infrastructure",
+        "Automated SOP parsing reducing manual preparation overhead",
+        "Built with Institutional Infrastructure focus: Python, FastAPI, React, PostgreSQL",
+      ],
+      techStack: "Python · FastAPI · React · PostgreSQL · LLM SOP Parsing · Cloud Hosting",
+      stats: [
+        { value: "10,000+", label: "Users Impacted" },
+        { value: "75%", label: "Faster Lab Prep" },
+        { value: "Real-time", label: "Resource Tracking" },
+        { value: "90%", label: "Documentation Accuracy" },
+      ],
+    },
     {
       title: "TenderAI",
       description:
@@ -165,30 +215,34 @@ export default function Projects() {
   return (
     <div
       id="projects"
-      className="py-20 bg-gradient-to-b from-gray-50 to-purple-50 dark:from-gray-900 dark:to-purple-900 transition-colors duration-300 overflow-hidden relative"
+      className="py-20 transition-colors duration-300 overflow-hidden relative section-base"
     >
-      {/* Philosophical Background Elements */}
+      {/* Subtle background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#4F46E5" />
-                <stop offset="100%" stopColor="#7C3AED" />
-              </linearGradient>
-            </defs>
-            {/* Abstract flowing lines */}
-            <path d="M0,500 Q250,400 500,500 T1000,500 T1500,500" stroke="url(#gradient)" strokeWidth="5" fill="none" />
-            <path d="M0,600 Q250,500 500,600 T1000,600 T1500,600" stroke="url(#gradient)" strokeWidth="5" fill="none" />
-            <path d="M0,700 Q250,600 500,700 T1000,700 T1500,700" stroke="url(#gradient)" strokeWidth="5" fill="none" />
-            <path d="M0,400 Q250,300 500,400 T1000,400 T1500,400" stroke="url(#gradient)" strokeWidth="5" fill="none" />
-            <path d="M0,300 Q250,200 500,300 T1000,300 T1500,300" stroke="url(#gradient)" strokeWidth="5" fill="none" />
-          </svg>
-        </div>
+        <div 
+          className="absolute top-0 left-0 w-full h-full opacity-[0.02]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 50%, var(--color-accent) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 80%, var(--color-accent) 0%, transparent 50%)`
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <AnimatedSectionHeader title="Projects Worked On" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 
+            className="text-4xl font-bold mb-4 hero-heading"
+            style={{ color: 'var(--color-text)' }}
+          >
+            Projects Worked On
+          </h2>
+        </motion.div>
 
         <div className="space-y-16">
           {projects.map((project, index) => (
@@ -198,23 +252,37 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden"
+              className="client-card rounded-2xl shadow-xl overflow-hidden"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="p-8 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+                    <h3 
+                      className="text-3xl font-bold mb-4 card-title"
+                      style={{ color: 'var(--color-text)' }}
+                    >
                       {project.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">{project.description}</p>
+                    <p 
+                      className="mb-6 text-lg"
+                      style={{ color: 'var(--color-text-muted)' }}
+                    >
+                      {project.description}
+                    </p>
 
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       {project.features.map((feature, idx) => (
                         <div key={idx} className="flex items-start">
-                          <div className="flex-shrink-0 h-6 w-6 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mt-0.5">
-                            <span className="h-3 w-3 rounded-full bg-indigo-600 dark:bg-indigo-400"></span>
+                          <div 
+                            className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center mt-0.5"
+                            style={{ backgroundColor: 'var(--color-accent-dim)' }}
+                          >
+                            <span 
+                              className="h-3 w-3 rounded-full"
+                              style={{ backgroundColor: 'var(--color-accent)' }}
+                            ></span>
                           </div>
-                          <p className="ml-3 text-sm text-gray-700 dark:text-gray-300">{feature}</p>
+                          <p className="ml-3 text-sm" style={{ color: 'var(--color-text-muted)' }}>{feature}</p>
                         </div>
                       ))}
                     </div>
@@ -222,8 +290,8 @@ export default function Projects() {
                     <div className="flex space-x-6 mb-6">
                       {project.stats.map((stat, idx) => (
                         <div key={idx} className="text-center">
-                          <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{stat.value}</p>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</p>
+                          <p className="text-2xl font-bold stat-number">{stat.value}</p>
+                          <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{stat.label}</p>
                         </div>
                       ))}
                     </div>
@@ -234,26 +302,43 @@ export default function Projects() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       Visit Project <ExternalLink className="w-4 h-4" />
                     </motion.a>
-                    <motion.button
-                      onClick={() => window.open(project.url, "_blank")}
-                      className="inline-flex items-center gap-2 px-6 py-3 border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 rounded-full hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-gray-900 transition-all duration-300"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      View Demo <ArrowRight className="w-4 h-4" />
-                    </motion.button>
+                    {project.demoUrl ? (
+                      <motion.a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        View Demo <Youtube className="w-4 h-4" />
+                      </motion.a>
+                    ) : (
+                      <motion.button
+                        onClick={() => window.open(project.url, "_blank")}
+                        className="btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        View Demo <ArrowRight className="w-4 h-4" />
+                      </motion.button>
+                    )}
                   </div>
                 </div>
 
-                <div className="relative h-80 lg:h-auto overflow-hidden group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                <div 
+                  className="relative h-80 lg:h-auto overflow-hidden group"
+                  style={{ backgroundColor: 'var(--color-surface-2)' }}
+                >
                   <div
-                    className={`absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse ${imageLoaded[index] ? "hidden" : "flex"} items-center justify-center`}
+                    className={`absolute inset-0 animate-pulse ${imageLoaded[index] ? "hidden" : "flex"} items-center justify-center`}
+                    style={{ backgroundColor: 'var(--color-surface)' }}
                   >
                     <span className="sr-only">Loading image...</span>
                   </div>
@@ -274,29 +359,43 @@ export default function Projects() {
                   </div>
 
                   {/* Subtle overlay for better text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.3), transparent)' }}
+                  ></div>
 
                   {/* Project type indicator */}
                   <div className="absolute bottom-4 left-4 right-4 z-20">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-                      <div className="flex items-center text-gray-800 dark:text-gray-200">
-                        {project.title === "Ruphids Autotech Solutions" ? (
-                          <Shield className="w-5 h-5 mr-2 text-blue-600" />
+                    <div 
+                      className="rounded-lg p-3 shadow-lg"
+                      style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
+                    >
+                      <div className="flex items-center" style={{ color: 'var(--color-text)' }}>
+                        {project.title.includes("The Action Foundation") ? (
+                          <MessageSquare className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
+                        ) : project.title.includes("CDIE") ? (
+                          <FlaskConical className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
+                        ) : project.title === "Ruphids Autotech Solutions" ? (
+                          <Shield className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         ) : project.title === "TenderAI" ? (
-                          <Code className="w-5 h-5 mr-2 text-purple-600" />
+                          <Code className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         ) : project.title === "Bootyque POS" ? (
-                          <Code className="w-5 h-5 mr-2 text-orange-600" />
+                          <Code className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         ) : (
-                          <Code className="w-5 h-5 mr-2 text-indigo-600" />
+                          <Code className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         )}
                         <span className="text-sm font-medium">
-                          {project.title === "Ruphids Autotech Solutions"
-                            ? "School Security & Biometric Systems"
-                            : project.title === "TenderAI"
-                              ? "AI-Powered Tender Analysis"
-                              : project.title === "Bootyque POS"
-                                ? "Fashion Boutique POS System"
-                                : "AI-Powered Real Estate Data Processing"}
+                          {project.title.includes("The Action Foundation")
+                            ? "AI Caregiver Support Ecosystem"
+                            : project.title.includes("CDIE")
+                              ? "Smart Lab Orchestration & SOP Automation"
+                              : project.title === "Ruphids Autotech Solutions"
+                                ? "School Security & Biometric Systems"
+                                : project.title === "TenderAI"
+                                  ? "AI-Powered Tender Analysis"
+                                  : project.title === "Bootyque POS"
+                                    ? "Fashion Boutique POS System"
+                                    : "AI-Powered Real Estate Data Processing"}
                         </span>
                       </div>
                     </div>

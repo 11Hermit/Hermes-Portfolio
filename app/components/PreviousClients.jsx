@@ -10,7 +10,7 @@ export default function PreviousClients() {
     {
       name: "Rightsify Hydra",
       description:
-        "An advanced AI music generation platform designed for commercial applications, providing copyright-cleared instrumental music for businesses, creators, and artists.",
+        "Built the AI core of a global music licensing platform. Transformer models generating copyright-cleared content for 3M+ daily users across 180+ countries — with distributed GCP training pipelines that cut model training time by 60%.",
       logo: "/images/rightsify-hydra-logo.png",
       website: "https://rightsify.com/hydra/",
       video: "https://rightsify.com/wp-content/uploads/2023/12/file.mp4",
@@ -31,7 +31,7 @@ export default function PreviousClients() {
     {
       name: "ClassifyMe",
       description:
-        "An innovative platform that helps students discover the perfect course match tailored to their passions, strengths, interests, and personality.",
+        "AI matching system that analyzes student aptitude and passions to surface personalized course recommendations — reducing course selection confusion at scale with vector-based semantic matching.",
       logo: "/images/classifyme-logo.png",
       website: "https://classifyme.co.ke",
       image: "/images/classifyme.png",
@@ -49,7 +49,6 @@ export default function PreviousClients() {
         author: "Gilbert",
       },
     },
-    // --- Kujia Jobs Mtandao entry ---
     {
       name: "Kujia Jobs Mtandao",
       description:
@@ -76,53 +75,29 @@ export default function PreviousClients() {
   return (
     <div
       id="clients"
-      className="py-20 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50 dark:from-indigo-900 dark:via-blue-900 dark:to-purple-900 transition-colors duration-300 overflow-hidden relative"
+      className="py-20 transition-colors duration-300 overflow-hidden relative section-base"
     >
-      {/* Philosophical Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="client-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#4F46E5" />
-                <stop offset="100%" stopColor="#7C3AED" />
-              </linearGradient>
-            </defs>
-            {/* Abstract flowing elements */}
-            <path
-              d="M0,200 C200,100 400,300 600,200 S800,100 1000,200"
-              stroke="url(#client-gradient)"
-              strokeWidth="3"
-              fill="none"
-            />
-            <path
-              d="M0,400 C200,300 400,500 600,400 S800,300 1000,400"
-              stroke="url(#client-gradient)"
-              strokeWidth="3"
-              fill="none"
-            />
-            <path
-              d="M0,600 C200,500 400,700 600,600 S800,500 1000,600"
-              stroke="url(#client-gradient)"
-              strokeWidth="3"
-              fill="none"
-            />
-            <path
-              d="M0,800 C200,700 400,900 600,800 S800,700 1000,800"
-              stroke="url(#client-gradient)"
-              strokeWidth="3"
-              fill="none"
-            />
-
-            <circle cx="200" cy="200" r="80" stroke="url(#client-gradient)" strokeWidth="2" fill="none" />
-            <circle cx="800" cy="600" r="120" stroke="url(#client-gradient)" strokeWidth="2" fill="none" />
-            <circle cx="500" cy="400" r="60" stroke="url(#client-gradient)" strokeWidth="2" fill="none" />
-          </svg>
-        </div>
-      </div>
-
       <div className="container mx-auto px-6 relative z-10">
-        <AnimatedSectionHeader title="Previous Clients" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 
+            className="text-4xl font-bold mb-4 hero-heading"
+            style={{ color: 'var(--color-text)' }}
+          >
+            Previous Clients
+          </h2>
+          <p 
+            className="text-xl max-w-3xl mx-auto"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
+            Companies that shipped AI products with me — not just bought a consulting deck.
+          </p>
+        </motion.div>
 
         <div className="space-y-20">
           {clients.map((client, index) => (
@@ -132,7 +107,7 @@ export default function PreviousClients() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="glass-card rounded-2xl shadow-xl overflow-hidden"
+              className="client-card rounded-2xl shadow-xl overflow-hidden"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                 {/* Left Column - Content */}
@@ -149,8 +124,16 @@ export default function PreviousClients() {
                         />
                       </div>
                       <div>
-                        <h3 className="text-3xl font-bold philosophical-text">{client.name}</h3>
-                        <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                        <h3 
+                          className="text-3xl font-bold card-title"
+                          style={{ color: 'var(--color-text)' }}
+                        >
+                          {client.name}
+                        </h3>
+                        <div 
+                          className="flex items-center text-sm"
+                          style={{ color: 'var(--color-text-muted)' }}
+                        >
                           <span className="mr-2">
                             {client.name === "Rightsify Hydra"
                               ? "AI Music Platform"
@@ -160,7 +143,10 @@ export default function PreviousClients() {
                                   ? "Job Board Platform"
                                   : "Client Platform"}
                           </span>
-                          <span className="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600"></span>
+                          <span 
+                            className="w-1 h-1 rounded-full"
+                            style={{ backgroundColor: 'var(--color-text-muted)' }}
+                          ></span>
                           <span className="ml-2">
                             {client.name === "Rightsify Hydra"
                               ? "Music Generation"
@@ -174,25 +160,52 @@ export default function PreviousClients() {
                       </div>
                     </div>
 
-                    <p className="text-gray-700 dark:text-gray-300 mb-8 text-lg">{client.description}</p>
+                    <p 
+                      className="mb-8 text-lg"
+                      style={{ color: 'var(--color-text-muted)' }}
+                    >
+                      {client.description}
+                    </p>
 
                     <div className="grid grid-cols-2 gap-4 mb-8">
                       {client.features.map((feature, idx) => (
                         <div key={idx} className="flex items-start">
-                          <div className="flex-shrink-0 h-5 w-5 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mt-1">
-                            <span className="h-2 w-2 rounded-full bg-indigo-600 dark:bg-indigo-400"></span>
+                          <div 
+                            className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mt-1"
+                            style={{ backgroundColor: 'var(--color-accent-dim)' }}
+                          >
+                            <span 
+                              className="h-2 w-2 rounded-full"
+                              style={{ backgroundColor: 'var(--color-accent)' }}
+                            ></span>
                           </div>
-                          <p className="ml-3 text-sm text-gray-700 dark:text-gray-300">{feature}</p>
+                          <p className="ml-3 text-sm" style={{ color: 'var(--color-text-muted)' }}>{feature}</p>
                         </div>
                       ))}
                     </div>
 
-                    <div className="bg-indigo-50 dark:bg-indigo-900/30 rounded-xl p-6 mb-8">
+                    <div 
+                      className="rounded-xl p-6 mb-8"
+                      style={{ backgroundColor: 'var(--color-surface-2)' }}
+                    >
                       <div className="flex mb-4">
-                        <div className="text-4xl text-indigo-600 dark:text-indigo-400">"</div>
+                        <div 
+                          className="text-4xl"
+                          style={{ color: 'var(--color-accent)' }}
+                        >
+                          "
+                        </div>
                       </div>
-                      <p className="text-gray-700 dark:text-gray-300 italic mb-4">{client.testimonial.quote}</p>
-                      <p className="text-right text-indigo-600 dark:text-indigo-400 font-medium">
+                      <p 
+                        className="italic mb-4"
+                        style={{ color: 'var(--color-text-muted)' }}
+                      >
+                        {client.testimonial.quote}
+                      </p>
+                      <p 
+                        className="text-right font-medium"
+                        style={{ color: 'var(--color-accent)' }}
+                      >
                         — {client.testimonial.author}
                       </p>
                     </div>
@@ -203,7 +216,7 @@ export default function PreviousClients() {
                       href={client.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -213,18 +226,18 @@ export default function PreviousClients() {
                 </div>
 
                 {/* Right Column - Image/Video and Features */}
-                <div className="lg:col-span-5 bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-800 relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-20">
-                    <svg className="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0,100 Q100,50 200,100 T400,100" stroke="white" strokeWidth="2" fill="none" />
-                      <path d="M0,200 Q100,150 200,200 T400,200" stroke="white" strokeWidth="2" fill="none" />
-                      <path d="M0,300 Q100,250 200,300 T400,300" stroke="white" strokeWidth="2" fill="none" />
-                    </svg>
-                  </div>
-
+                <div 
+                  className="lg:col-span-5 relative overflow-hidden"
+                  style={{ backgroundColor: 'var(--color-surface-2)' }}
+                >
                   <div className="p-8 lg:p-12 h-full flex flex-col justify-between relative z-10">
                     <div>
-                      <h4 className="text-2xl font-bold text-white mb-6">Key Highlights</h4>
+                      <h4 
+                        className="text-2xl font-bold mb-6"
+                        style={{ color: 'var(--color-text)' }}
+                      >
+                        Key Highlights
+                      </h4>
 
                       {client.name === "Rightsify Hydra" ? (
                         <>
@@ -245,141 +258,84 @@ export default function PreviousClients() {
                           </div>
 
                           <div className="space-y-4 mb-8">
-                            <div className="flex items-start">
-                              <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                                <Music className="w-5 h-5 text-white" />
+                            {[
+                              { icon: Music, title: "AI-Powered", desc: "Advanced music generation using Nvidia H100 GPUs" },
+                              { icon: Headphones, title: "Commercial Use", desc: "Copyright-cleared music for any project" },
+                              { icon: Globe, title: "Global Reach", desc: "Used in 180+ countries by millions daily" },
+                              { icon: Zap, title: "Customizable", desc: "Detailed prompts for tailored music generation" },
+                            ].map((item, idx) => (
+                              <div key={idx} className="flex items-start">
+                                <div 
+                                  className="flex-shrink-0 p-2 rounded-lg mr-4"
+                                  style={{ backgroundColor: 'var(--color-accent-dim)' }}
+                                >
+                                  <item.icon className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
+                                </div>
+                                <div>
+                                  <h5 className="font-medium" style={{ color: 'var(--color-text)' }}>{item.title}</h5>
+                                  <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{item.desc}</p>
+                                </div>
                               </div>
-                              <div>
-                                <h5 className="text-white font-medium">AI-Powered</h5>
-                                <p className="text-white/80 text-sm">
-                                  Advanced music generation using Nvidia H100 GPUs
-                                </p>
-                              </div>
-                            </div>
-
-                            <div className="flex items-start">
-                              <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                                <Headphones className="w-5 h-5 text-white" />
-                              </div>
-                              <div>
-                                <h5 className="text-white font-medium">Commercial Use</h5>
-                                <p className="text-white/80 text-sm">Copyright-cleared music for any project</p>
-                              </div>
-                            </div>
-
-                            <div className="flex items-start">
-                              <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                                <Globe className="w-5 h-5 text-white" />
-                              </div>
-                              <div>
-                                <h5 className="text-white font-medium">Global Reach</h5>
-                                <p className="text-white/80 text-sm">Used in 180+ countries by millions daily</p>
-                              </div>
-                            </div>
-
-                            <div className="flex items-start">
-                              <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                                <Zap className="w-5 h-5 text-white" />
-                              </div>
-                              <div>
-                                <h5 className="text-white font-medium">Customizable</h5>
-                                <p className="text-white/80 text-sm">Detailed prompts for tailored music generation</p>
-                              </div>
-                            </div>
+                            ))}
                           </div>
                         </>
                       ) : client.name === "Kujia Jobs Mtandao" ? (
                         <div className="space-y-4 mb-8">
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                              <Users className="w-5 h-5 text-white" />
+                          {[
+                            { icon: Users, title: "Job Board", desc: "Curated jobs for Kenyan professionals" },
+                            { icon: Sparkles, title: "Verified Listings", desc: "Strict anti-fraud and employer verification" },
+                            { icon: BookOpen, title: "Career Resources", desc: "CV builder, interview tips, mentorship" },
+                            { icon: MessageSquare, title: "Community Support", desc: "Q&A forums and personalized job alerts" },
+                          ].map((item, idx) => (
+                            <div key={idx} className="flex items-start">
+                              <div 
+                                className="flex-shrink-0 p-2 rounded-lg mr-4"
+                                style={{ backgroundColor: 'var(--color-accent-dim)' }}
+                              >
+                                <item.icon className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
+                              </div>
+                              <div>
+                                <h5 className="font-medium" style={{ color: 'var(--color-text)' }}>{item.title}</h5>
+                                <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{item.desc}</p>
+                              </div>
                             </div>
-                            <div>
-                              <h5 className="text-white font-medium">Job Board</h5>
-                              <p className="text-white/80 text-sm">Curated jobs for Kenyan professionals</p>
-                            </div>
-                          </div>
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                              <Sparkles className="w-5 h-5 text-white" />
-                            </div>
-                            <div>
-                              <h5 className="text-white font-medium">Verified Listings</h5>
-                              <p className="text-white/80 text-sm">Strict anti-fraud and employer verification</p>
-                            </div>
-                          </div>
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                              <BookOpen className="w-5 h-5 text-white" />
-                            </div>
-                            <div>
-                              <h5 className="text-white font-medium">Career Resources</h5>
-                              <p className="text-white/80 text-sm">CV builder, interview tips, mentorship</p>
-                            </div>
-                          </div>
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                              <MessageSquare className="w-5 h-5 text-white" />
-                            </div>
-                            <div>
-                              <h5 className="text-white font-medium">Community Support</h5>
-                              <p className="text-white/80 text-sm">Q&A forums and personalized job alerts</p>
-                            </div>
-                          </div>
+                          ))}
                         </div>
                       ) : (
                         <div className="space-y-4 mb-8">
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                              <Users className="w-5 h-5 text-white" />
+                          {[
+                            { icon: Users, title: "Student-Centered", desc: "Personalized approach to course selection" },
+                            { icon: Sparkles, title: "AI-Powered", desc: "Smart algorithms for perfect course matching" },
+                            { icon: BookOpen, title: "Comprehensive", desc: "Holistic approach to academic guidance" },
+                            { icon: MessageSquare, title: "Supportive", desc: "Guidance throughout the academic journey" },
+                          ].map((item, idx) => (
+                            <div key={idx} className="flex items-start">
+                              <div 
+                                className="flex-shrink-0 p-2 rounded-lg mr-4"
+                                style={{ backgroundColor: 'var(--color-accent-dim)' }}
+                              >
+                                <item.icon className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
+                              </div>
+                              <div>
+                                <h5 className="font-medium" style={{ color: 'var(--color-text)' }}>{item.title}</h5>
+                                <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{item.desc}</p>
+                              </div>
                             </div>
-                            <div>
-                              <h5 className="text-white font-medium">Student-Centered</h5>
-                              <p className="text-white/80 text-sm">Personalized approach to course selection</p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                              <Sparkles className="w-5 h-5 text-white" />
-                            </div>
-                            <div>
-                              <h5 className="text-white font-medium">AI-Powered</h5>
-                              <p className="text-white/80 text-sm">Smart algorithms for perfect course matching</p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                              <BookOpen className="w-5 h-5 text-white" />
-                            </div>
-                            <div>
-                              <h5 className="text-white font-medium">Comprehensive</h5>
-                              <p className="text-white/80 text-sm">Holistic approach to academic guidance</p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 p-2 bg-white/20 rounded-lg mr-4">
-                              <MessageSquare className="w-5 h-5 text-white" />
-                            </div>
-                            <div>
-                              <h5 className="text-white font-medium">Supportive</h5>
-                              <p className="text-white/80 text-sm">Guidance throughout the academic journey</p>
-                            </div>
-                          </div>
+                          ))}
                         </div>
                       )}
                     </div>
 
-                    <div className="bg-white/10 rounded-xl p-4">
-                      <p className="text-white text-sm italic">
+                    <div 
+                      className="rounded-xl p-4"
+                      style={{ backgroundColor: 'var(--color-surface)' }}
+                    >
+                      <p className="text-sm italic" style={{ color: 'var(--color-text-muted)' }}>
                         {client.name === "Rightsify Hydra"
                           ? "Unlock limitless musical possibilities and use the music for any project or use case. Generate unique, copyright-clear music instantly."
                           : client.name === "Kujia Jobs Mtandao"
                             ? "Unlock your career potential with verified job listings, career resources, and community support. Find your dream job today!"
                             : "Explore Your Path, Discover Your Course. Dive into endless opportunities and find the course that aligns with your interests and ambitions."}
-                          : "Explore Your Path, Discover Your Course. Dive into endless opportunities and find the course that aligns with your interests and ambitions."}
                       </p>
                     </div>
                   </div>
