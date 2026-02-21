@@ -92,9 +92,9 @@ export default function Hero() {
                 className="text-xl md:text-2xl mb-6 leading-relaxed"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                I architect and deploy production-grade AI — LLM pipelines, agentic systems, 
-                and data infrastructure — for clients across healthcare, fintech, and enterprise. 
-                Five years. 20+ systems. Real outcomes.
+                I architect and deploy production-grade AI; LLM pipelines, agentic systems, 
+                and data infrastructure, for clients across healthcare, fintech, and enterprise. 
+                6 years. 22+ systems. Real quantifiable and impactful outcomes.
               </p>
             </div>
 
@@ -137,8 +137,8 @@ export default function Hero() {
                 <ArrowDown className="w-5 h-5" />
               </motion.button>
               <motion.a
-                href="/Ashtone_Onyango_Resume.pdf"
-                download="Ashtone_Onyango_Resume.pdf"
+                href="/Resume - Ashtone Onyango.pdf"
+                download="Resume - Ashtone Onyango.pdf"
                 className="btn-secondary inline-flex items-center gap-2 px-8 py-4 rounded-full transition-all duration-300 text-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

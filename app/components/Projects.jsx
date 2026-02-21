@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ExternalLink, Code, ArrowRight, Shield, Bell, MessageSquare, Youtube, FlaskConical } from "lucide-react"
+import { ExternalLink, Code, ArrowRight, Shield, Bell, MessageSquare, Youtube, FlaskConical, Briefcase } from "lucide-react"
 import Image from "next/image"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
 import { useState } from "react"
@@ -58,6 +58,31 @@ export default function Projects() {
         { value: "75%", label: "Faster Lab Prep" },
         { value: "Real-time", label: "Resource Tracking" },
         { value: "90%", label: "Documentation Accuracy" },
+      ],
+    },
+    {
+      title: "Agian Solutions — Dignified Employment Ecosystem",
+      description:
+        "A comprehensive labor market platform connecting Kenyan youth with dignified employment through automated placement tracking and multi-stakeholder verification. Developed a robust employment infrastructure serving all 47 counties in Kenya. The platform orchestrates the workflow between job seekers, placement partners, and employers, ensuring every placement meets minimum wage and duration standards through a comprehensive verification engine.",
+      image: "/images/agian.png",
+      url: "https://jobs.agiansolutions.co.ke",
+      demoUrl: "https://jobs.agiansolutions.co.ke",
+      features: [
+        "Multi-tenant Placement Pipeline for partners",
+        "Automated Hire Verification & KPI Tracking",
+        "Real-time Support Integration for Opportunity Youth",
+        "Employer Dashboard for job posting and application review",
+        "System Orchestration across 47 counties with measurable impact",
+        "Verification Logic ensuring KES 15K minimum wage enforcement",
+        "6-month minimum job duration compliance tracking",
+        "Built for Business and Social Growth: Node.js, React, PostgreSQL",
+      ],
+      techStack: "Node.js · React · PostgreSQL · Verification Logic · KPI Analytics · Cloud Infrastructure",
+      stats: [
+        { value: "1,000+", label: "Verified Placements" },
+        { value: "47", label: "Counties Covered" },
+        { value: "KES 15K", label: "Minimum Wage Enforcement" },
+        { value: "6 Months", label: "Minimum Job Duration" },
       ],
     },
     {
@@ -375,6 +400,8 @@ export default function Projects() {
                           <MessageSquare className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         ) : project.title.includes("CDIE") ? (
                           <FlaskConical className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
+                        ) : project.title.includes("Agian") ? (
+                          <Briefcase className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         ) : project.title === "Ruphids Autotech Solutions" ? (
                           <Shield className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         ) : project.title === "TenderAI" ? (
@@ -389,13 +416,15 @@ export default function Projects() {
                             ? "AI Caregiver Support Ecosystem"
                             : project.title.includes("CDIE")
                               ? "Smart Lab Orchestration & SOP Automation"
-                              : project.title === "Ruphids Autotech Solutions"
-                                ? "School Security & Biometric Systems"
-                                : project.title === "TenderAI"
-                                  ? "AI-Powered Tender Analysis"
-                                  : project.title === "Bootyque POS"
-                                    ? "Fashion Boutique POS System"
-                                    : "AI-Powered Real Estate Data Processing"}
+                              : project.title.includes("Agian")
+                                ? "Dignified Employment Ecosystem"
+                                : project.title === "Ruphids Autotech Solutions"
+                                  ? "School Security & Biometric Systems"
+                                  : project.title === "TenderAI"
+                                    ? "AI-Powered Tender Analysis"
+                                    : project.title === "Bootyque POS"
+                                      ? "Fashion Boutique POS System"
+                                      : "AI-Powered Real Estate Data Processing"}
                         </span>
                       </div>
                     </div>

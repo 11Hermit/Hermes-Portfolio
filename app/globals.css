@@ -264,16 +264,16 @@ body {
 
 /* Client/Project cards */
 .client-card {
-  background: var(--color-surface);
+  background: #030712;
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .client-card:hover {
   border-color: var(--color-accent);
   transform: translateY(-2px);
-  box-shadow: inset 3px 0 0 var(--color-accent);
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.1), inset 3px 0 0 var(--color-accent);
 }
 
 /* Expertise/Philosophy cards */

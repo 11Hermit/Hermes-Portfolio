@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Brain, Bot, Database, Zap, GitBranch, Cpu, Briefcase, Calendar, MapPin } from "lucide-react"
+import { Brain, Bot, Database, Zap, GitBranch, Cpu, Briefcase, Calendar, MapPin, Building2, Code, Users, BookOpen, Sparkles, Globe } from "lucide-react"
 
 const services = [
   {
@@ -38,45 +38,51 @@ const services = [
 
 const experiences = [
   {
-    company: "Rightsify Group LLC",
-    location: "Pasadena, California",
-    period: "June 2023 - Aug 2024",
-    role: "Senior AI Engineer",
-    highlights: [
-      "Architected AI music platform serving 3M+ daily users",
-      "Fine-tuned transformer models on 1M+ songs",
-      "Reduced model training time by 60%",
-      "Built GraphQL APIs with React/Angular frontends",
-      "Implemented distributed training pipelines",
-      "Designed scalable inference architecture",
-    ],
-  },
-  {
     company: "Wan AI Labs",
     location: "Nairobi, Kenya",
     period: "Jun 2023 - Present",
-    role: "Co-Founder & AI Solutions Architect",
+    role: "Senior AI Engineer",
+    icon: <Sparkles className="w-6 h-6" />,
+    color: "from-teal-500 to-cyan-500",
     highlights: [
-      "Built AI platform processing $500M+ in property data",
-      "Developed custom RAG system with 92% accuracy",
-      "Automated 80% of manual data processing",
-      "Created Express-GraphQL APIs with React dashboards",
-      "Implemented agentic AI workflows",
-      "Designed cloud-native data pipelines",
+      "Led AI division providing 24/7 intelligent business agents across healthcare, legal, finance, and enterprise operations",
+      "Designed and deployed 20+ production-grade AI systems using GPT-4, Claude, Gemini, LangChain and CrewAI",
+      "Automated support, scheduling, and data processing workflows - resulting in 40% higher productivity and 60% reduction in manual tasks",
+      "Led cross-functional teams delivering tailored AI workflows for government and enterprise clients",
+      "Contributed to estimated KES 2M+ in cost savings through intelligent automation",
+      "Oversaw integration with legacy enterprise systems via GraphQL APIs, Kafka pipelines, and REST services",
+    ],
+  },
+  {
+    company: "Rightsify Group LLC",
+    location: "Pasadena, California",
+    period: "Jun 2023 - Aug 2024",
+    role: "AI Software Engineer",
+    icon: <Globe className="w-6 h-6" />,
+    color: "from-purple-500 to-pink-500",
+    highlights: [
+      "Architected scalable AI music generation systems serving 3M+ daily users leveraging LLMs and transformer models",
+      "Designed distributed training pipelines on GCP that reduced model training time by 60%",
+      "Fine-tuned transformer models using PyTorch and HuggingFace, achieving 20% performance improvement",
+      "Built production GraphQL APIs with React frontends, implementing semantic search capabilities",
+      "Improved content discovery accuracy by 35% through semantic search integration",
+      "Orchestrated automated AWS S3 to GCP migrations for 10TB+ datasets",
     ],
   },
   {
     company: "Zuri Health",
     location: "Nairobi, Kenya",
     period: "Jan 2023 - April 2023",
-    role: "AI Engineer",
+    role: "Software Developer",
+    icon: <Bot className="w-6 h-6" />,
+    color: "from-green-500 to-emerald-500",
     highlights: [
-      "Developed AI-powered symptom analysis system",
-      "Built conversational AI chatbot for patient triage",
-      "Implemented Graphene GraphQL server",
-      "Created React components with Apollo Client",
-      "Enhanced chatbot accuracy using RAG",
-      "Reduced query resolution time by 30%",
+      "Developed AI-powered healthcare triage system serving 5,000+ users across Sub-Saharan Africa",
+      "Built conversational AI chatbot using NLP and RAG architecture, reducing query resolution time by 30%",
+      "Implemented Graphene-based GraphQL server with React/Apollo Client frontend",
+      "Processed 10,000+ patient interactions monthly with 92% diagnostic accuracy",
+      "Enhanced chatbot intelligence through semantic search integration with medical knowledge bases",
+      "Improved response relevance by 40% through semantic search integration",
     ],
   },
   {
@@ -84,41 +90,47 @@ const experiences = [
     location: "Nairobi, Kenya",
     period: "Aug 2021 - Present",
     role: "AI Facilitator/Trainer",
+    icon: <Users className="w-6 h-6" />,
+    color: "from-blue-500 to-indigo-500",
     highlights: [
-      "Facilitated 10+ ML workshops across Africa",
-      "Managed community of 5000+ contributors",
-      "Trained on responsible AI development",
-      "Promoted AI accessibility and ethics",
-      "Contributed to global AI initiatives",
-      "Built educational AI content",
+      "Facilitated 11+ hands-on ML workshops for 33+ university students across African countries",
+      "Covered LLM fine-tuning, NLP, and cloud ML deployment using AWS SageMaker and GCP Vertex AI",
+      "Managed community of 5,000+ AI contributors, coordinating open-source initiatives",
+      "Focused on ethical AI development and accessibility across African communities",
+      "Promoted responsible AI development and ML education across Africa",
+      "Built educational AI content and resources for community learning",
+    ],
+  },
+  {
+    company: "Upwork",
+    location: "Nairobi, Kenya",
+    period: "Feb 2021 - Sep 2022",
+    role: "Machine Learning Engineer",
+    icon: <Code className="w-6 h-6" />,
+    color: "from-orange-500 to-red-500",
+    highlights: [
+      "Delivered 33+ custom AI solutions leveraging AWS and Azure ML services",
+      "Implemented semantic search and NLP systems for diverse client needs",
+      "Built production-ready GraphQL APIs with Express and React frontends",
+      "Developed distributed data processing pipelines using Apache Spark improving data ingestion speed by 65%",
+      "Created automated reporting systems in Tableau that saved clients 10+ hours weekly",
+      "Integrated LLM capabilities for intelligent data processing across multiple projects",
     ],
   },
   {
     company: "Analytics Vidhya",
     location: "Gurgaon, India",
     period: "Sep 2022 - Dec 2022",
-    role: "AI Content Writer",
+    role: "Technical Writer",
+    icon: <BookOpen className="w-6 h-6" />,
+    color: "from-yellow-500 to-amber-500",
     highlights: [
-      "Published 3 tutorial articles on LLMs with GraphQL",
-      "Created content on AI-powered applications",
-      "Developed sample code for LLM fine-tuning",
-      "Wrote guides on vector databases",
-      "Contributed to AI education community",
-      "Simplified complex AI concepts",
-    ],
-  },
-  {
-    company: "Freelance",
-    location: "Nairobi, Kenya",
-    period: "Feb 2022 - Sep 2022",
-    role: "AI & Full Stack Engineer",
-    highlights: [
-      "Developed custom AI solutions for multiple clients",
-      "Built GraphQL APIs with Express-GraphQL",
-      "Created React applications with Apollo Client",
-      "Implemented .NET Core microservices",
-      "Designed AWS-based data processing pipelines",
-      "Delivered NLP and computer vision projects",
+      "Wrote and published 3 tutorial articles for the monthly data science blogathon",
+      "Created content on ETL pipelines for over 2000 rows of data extracted from OLAP and OLTP databases",
+      "Implemented 2 application backends using Flask to integrate database APIs",
+      "Enabled interaction with remote Postgres database servers hosted locally and on cloud",
+      "Attracted over 50 readers and users to the platform through educational content",
+      "Contributed to AI education community through technical writing and tutorials",
     ],
   },
 ]
@@ -141,7 +153,6 @@ export default function CombinedServices() {
           </p>
         </motion.div>
 
-        {/* Service Impact Metrics */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,16 +162,16 @@ export default function CombinedServices() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">85%</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Customer Relationship Improvement</div>
+              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">KES 2M+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Cost Savings Through Automation</div>
             </div>
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">70%</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Administrative Backlog Reduction</div>
+              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">20+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Production AI Systems Deployed</div>
             </div>
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">1M+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Daily Data Points Processed</div>
+              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">3M+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Daily Users Across Platforms</div>
             </div>
           </div>
         </motion.div>
@@ -196,7 +207,7 @@ export default function CombinedServices() {
         >
           <h3 className="text-4xl font-bold mb-4 philosophical-text">Professional Experience</h3>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Leading AI initiatives at innovative companies worldwide
+            5+ years architecting production-grade AI systems that drive measurable business impact
           </p>
         </motion.div>
 
@@ -208,34 +219,39 @@ export default function CombinedServices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-purple-500"
             >
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                <div>
-                  <h4 className="text-2xl font-bold philosophical-text mb-2">{exp.company}</h4>
-                  <p className="text-xl font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
-                    <Briefcase className="w-5 h-5 mr-2" />
-                    {exp.role}
-                  </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-gray-600 dark:text-gray-400">
-                    <p className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      {exp.location}
-                    </p>
-                    <p className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      {exp.period}
+                <div className="flex items-center mb-4 lg:mb-0">
+                  <div className={`p-3 rounded-lg bg-gradient-to-r ${exp.color} mr-4 text-white`}>
+                    {exp.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold philosophical-text mb-1">{exp.company}</h4>
+                    <p className="text-xl font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
+                      <Briefcase className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+                      {exp.role}
                     </p>
                   </div>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-gray-600 dark:text-gray-400">
+                  <p className="flex items-center mb-2 sm:mb-0">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {exp.location}
+                  </p>
+                  <p className="flex items-center">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    {exp.period}
+                  </p>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {exp.highlights.map((highlight, idx) => (
                   <div key={idx} className="flex items-start">
-                    <div className="flex-shrink-0 h-5 w-5 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mt-1">
-                      <span className="h-2 w-2 rounded-full bg-purple-600 dark:bg-purple-400"></span>
+                    <div className={`flex-shrink-0 h-5 w-5 rounded-full bg-gradient-to-r ${exp.color} flex items-center justify-center mt-1 mr-3`}>
+                      <span className="h-2 w-2 rounded-full bg-white"></span>
                     </div>
-                    <span className="ml-3 text-gray-700 dark:text-gray-300">{highlight}</span>
+                    <span className="text-gray-700 dark:text-gray-300 leading-relaxed">{highlight}</span>
                   </div>
                 ))}
               </div>

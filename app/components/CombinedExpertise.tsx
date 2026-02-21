@@ -66,9 +66,9 @@ export default function CombinedExpertise() {
           className="text-xl max-w-4xl mx-auto leading-relaxed"
           style={{ color: 'var(--color-text-muted)' }}
         >
-          I don't build AI demos — I build systems that survive production. Five years of shipping 
-          LLM pipelines, agentic workflows, and data infrastructure for clients in healthcare, fintech, 
-          and enterprise. The metric I care about: does it work when real users hit it?
+          I don't build AI demos. I build systems that survive production. Six years of shipping 
+          LLM pipelines, agentic automation workflows, and data infrastructure for clients in healthcare, fintech, 
+          enterprise, and governance. The metric I care about: does it work when real users hit it?
         </p>
       </motion.div>
 
@@ -82,11 +82,11 @@ export default function CombinedExpertise() {
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
-            <div className="text-4xl font-bold stat-number">5+</div>
+            <div className="text-4xl font-bold stat-number">6+</div>
             <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Yrs Production AI</div>
           </div>
           <div>
-            <div className="text-4xl font-bold stat-number">20+</div>
+            <div className="text-4xl font-bold stat-number">22+</div>
             <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Systems Deployed</div>
           </div>
           <div>
@@ -94,7 +94,7 @@ export default function CombinedExpertise() {
             <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Savings Generated</div>
           </div>
           <div>
-            <div className="text-4xl font-bold stat-number">99.9%</div>
+            <div className="text-4xl font-bold stat-number">96.3%</div>
             <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Uptime Maintained</div>
           </div>
         </div>

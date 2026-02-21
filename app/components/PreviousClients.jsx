@@ -8,6 +8,63 @@ import AnimatedSectionHeader from "./AnimatedSectionHeader"
 export default function PreviousClients() {
   const clients = [
     {
+      name: "The Action Foundation (TAF)",
+      description:
+        "Collaborated with TAF to build a high-impact AI caregiver support ecosystem, utilizing RAG architecture to provide 24/7 empathetic support on WhatsApp for families of children with disabilities.",
+      logo: "https://theactionfoundationkenya.org/wp-content/uploads/2022/03/TAF-Logo.png",
+      website: "https://theactionfoundationkenya.org",
+      features: [
+        "AI caregiver support ecosystem with RAG architecture",
+        "24/7 empathetic WhatsApp support for vulnerable families",
+        "Specialized medical and legal knowledge base",
+        "Multi-modal knowledge management system",
+        "Real-time support across Sub-Saharan Africa",
+        "Engineering rigor with Python, LLMs, Vector Databases",
+      ],
+      metrics: {
+        primary: "1,000+ Caregivers Supported",
+        secondary: "95% Information Accuracy",
+      },
+    },
+    {
+      name: "Kenyatta University (CDIE Innovation Hub)",
+      description:
+        "Engineered a Smart Laboratory Management System for KU's CDIE Hub, implementing AI-driven SOP automation that streamlines technical documentation for thousands of students and researchers.",
+      logo: "https://mlalyk2fvka4.i.optimole.com/cb:7IGe.234/w:auto/h:auto/q:mauto/f:best/https://cdie.co.ke/wp-content/uploads/2025/04/cdiepng-e1745595003177.png",
+      website: "https://cdie.co.ke",
+      features: [
+        "AI-driven SOP automation for laboratory operations",
+        "Centralized resource tracking and analytics",
+        "Equipment booking and scheduling system",
+        "Interactive modules for technical documentation",
+        "LLM-powered documentation processing",
+        "Institutional infrastructure: Python, FastAPI, React, PostgreSQL",
+      ],
+      metrics: {
+        primary: "10,000+ Users Impacted",
+        secondary: "75% Faster Lab Preparation",
+      },
+    },
+    {
+      name: "Agian Solutions",
+      description:
+        "Architected a national scale employment platform to bridge the gap for opportunity youth across 47 Kenyan counties, featuring a robust automated verification engine for dignified labor placements.",
+      logo: "https://res-console.cloudinary.com/di2rbwzyd/thumbnails/v1/image/upload/v1771687473/YWdpYW4tbG9nb19kZmh2eDQ=/drilldown",
+      website: "https://agiansolutions.co.ke",
+      features: [
+        "National employment platform across 47 counties",
+        "Automated verification engine for labor placements",
+        "Multi-tenant placement pipeline for partners",
+        "KES 15K minimum wage enforcement",
+        "6-month minimum job duration compliance",
+        "System orchestration: Node.js, React, PostgreSQL",
+      ],
+      metrics: {
+        primary: "1,000+ Verified Placements",
+        secondary: "47 Counties Covered",
+      },
+    },
+    {
       name: "Rightsify Hydra",
       description:
         "Built the AI core of a global music licensing platform. Transformer models generating copyright-cleared content for 3M+ daily users across 180+ countries — with distributed GCP training pipelines that cut model training time by 60%.",
@@ -135,26 +192,38 @@ export default function PreviousClients() {
                           style={{ color: 'var(--color-text-muted)' }}
                         >
                           <span className="mr-2">
-                            {client.name === "Rightsify Hydra"
-                              ? "AI Music Platform"
-                              : client.name === "ClassifyMe"
-                                ? "Educational Platform"
-                                : client.name === "Kujia Jobs Mtandao"
-                                  ? "Job Board Platform"
-                                  : "Client Platform"}
+                            {client.name.includes("The Action Foundation")
+                              ? "Non-Profit Healthcare"
+                              : client.name.includes("Kenyatta University")
+                                ? "Educational Institution"
+                                : client.name.includes("Agian")
+                                  ? "Employment Platform"
+                                  : client.name === "Rightsify Hydra"
+                                    ? "AI Music Platform"
+                                    : client.name === "ClassifyMe"
+                                      ? "Educational Platform"
+                                      : client.name === "Kujia Jobs Mtandao"
+                                        ? "Job Board Platform"
+                                        : "Client Platform"}
                           </span>
                           <span 
                             className="w-1 h-1 rounded-full"
                             style={{ backgroundColor: 'var(--color-text-muted)' }}
                           ></span>
                           <span className="ml-2">
-                            {client.name === "Rightsify Hydra"
-                              ? "Music Generation"
-                              : client.name === "ClassifyMe"
-                                ? "Course Recommendation"
-                                : client.name === "Kujia Jobs Mtandao"
-                                  ? "Career & Job Matching"
-                                  : "Client Service"}
+                            {client.name.includes("The Action Foundation")
+                              ? "AI Caregiver Support"
+                              : client.name.includes("Kenyatta University")
+                                ? "Lab Management System"
+                                : client.name.includes("Agian")
+                                  ? "Employment Verification"
+                                  : client.name === "Rightsify Hydra"
+                                    ? "Music Generation"
+                                    : client.name === "ClassifyMe"
+                                      ? "Course Recommendation"
+                                      : client.name === "Kujia Jobs Mtandao"
+                                        ? "Career & Job Matching"
+                                        : "Client Service"}
                           </span>
                         </div>
                       </div>
@@ -188,26 +257,55 @@ export default function PreviousClients() {
                       className="rounded-xl p-6 mb-8"
                       style={{ backgroundColor: 'var(--color-surface-2)' }}
                     >
-                      <div className="flex mb-4">
-                        <div 
-                          className="text-4xl"
-                          style={{ color: 'var(--color-accent)' }}
-                        >
-                          "
+                      {client.metrics ? (
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <div 
+                              className="text-2xl font-bold"
+                              style={{ color: 'var(--color-accent)' }}
+                            >
+                              {client.metrics.primary}
+                            </div>
+                            <div className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                              Primary Impact
+                            </div>
+                          </div>
+                          <div>
+                            <div 
+                              className="text-2xl font-bold"
+                              style={{ color: 'var(--color-accent)' }}
+                            >
+                              {client.metrics.secondary}
+                            </div>
+                            <div className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                              Key Metric
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <p 
-                        className="italic mb-4"
-                        style={{ color: 'var(--color-text-muted)' }}
-                      >
-                        {client.testimonial.quote}
-                      </p>
-                      <p 
-                        className="text-right font-medium"
-                        style={{ color: 'var(--color-accent)' }}
-                      >
-                        — {client.testimonial.author}
-                      </p>
+                      ) : client.testimonial ? (
+                        <>
+                          <div className="flex mb-4">
+                            <div 
+                              className="text-4xl"
+                              style={{ color: 'var(--color-accent)' }}
+                            >
+                              "
+                            </div>
+                          </div>
+                          <p 
+                            className="italic mb-4"
+                            style={{ color: 'var(--color-text-muted)' }}
+                          >
+                            {client.testimonial.quote}
+                          </p>
+                          <p 
+                            className="text-right font-medium"
+                            style={{ color: 'var(--color-accent)' }}
+                          >
+                            — {client.testimonial.author}
+                          </p>
+                        </>
+                      ) : null}
                     </div>
                   </div>
 
@@ -279,6 +377,72 @@ export default function PreviousClients() {
                             ))}
                           </div>
                         </>
+                      ) : client.name.includes("The Action Foundation") ? (
+                        <div className="space-y-4 mb-8">
+                          {[
+                            { icon: MessageSquare, title: "WhatsApp Integration", desc: "24/7 empathetic AI support via WhatsApp" },
+                            { icon: Sparkles, title: "RAG Architecture", desc: "Custom medical and legal knowledge base" },
+                            { icon: Users, title: "Caregiver Support", desc: "Serving vulnerable families across Africa" },
+                            { icon: BookOpen, title: "Multi-modal Knowledge", desc: "Documents, videos, and media integration" },
+                          ].map((item, idx) => (
+                            <div key={idx} className="flex items-start">
+                              <div 
+                                className="flex-shrink-0 p-2 rounded-lg mr-4"
+                                style={{ backgroundColor: 'var(--color-accent-dim)' }}
+                              >
+                                <item.icon className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
+                              </div>
+                              <div>
+                                <h5 className="font-medium" style={{ color: 'var(--color-text)' }}>{item.title}</h5>
+                                <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{item.desc}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : client.name.includes("Kenyatta University") ? (
+                        <div className="space-y-4 mb-8">
+                          {[
+                            { icon: BookOpen, title: "SOP Automation", desc: "AI-driven documentation processing" },
+                            { icon: Sparkles, title: "Lab Management", desc: "Centralized resource tracking system" },
+                            { icon: Users, title: "Student Impact", desc: "10,000+ users across university" },
+                            { icon: Zap, title: "Interactive Modules", desc: "Transforming dense technical docs" },
+                          ].map((item, idx) => (
+                            <div key={idx} className="flex items-start">
+                              <div 
+                                className="flex-shrink-0 p-2 rounded-lg mr-4"
+                                style={{ backgroundColor: 'var(--color-accent-dim)' }}
+                              >
+                                <item.icon className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
+                              </div>
+                              <div>
+                                <h5 className="font-medium" style={{ color: 'var(--color-text)' }}>{item.title}</h5>
+                                <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{item.desc}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : client.name.includes("Agian") ? (
+                        <div className="space-y-4 mb-8">
+                          {[
+                            { icon: Users, title: "National Scale", desc: "47 counties across Kenya" },
+                            { icon: Sparkles, title: "Verification Engine", desc: "Automated placement validation" },
+                            { icon: BookOpen, title: "Dignified Labor", desc: "KES 15K minimum wage enforcement" },
+                            { icon: Zap, title: "System Orchestration", desc: "Multi-tenant partner pipeline" },
+                          ].map((item, idx) => (
+                            <div key={idx} className="flex items-start">
+                              <div 
+                                className="flex-shrink-0 p-2 rounded-lg mr-4"
+                                style={{ backgroundColor: 'var(--color-accent-dim)' }}
+                              >
+                                <item.icon className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
+                              </div>
+                              <div>
+                                <h5 className="font-medium" style={{ color: 'var(--color-text)' }}>{item.title}</h5>
+                                <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{item.desc}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       ) : client.name === "Kujia Jobs Mtandao" ? (
                         <div className="space-y-4 mb-8">
                           {[

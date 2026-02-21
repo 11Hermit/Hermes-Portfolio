@@ -11,7 +11,7 @@ const navigationItems = [
   { id: "expertise", label: "Expertise", icon: User },
   { id: "projects", label: "Projects", icon: Briefcase },
   { id: "philosophy", label: "Philosophy", icon: Lightbulb },
-  { id: "services", label: "Services", icon: Users },
+  { id: "services", label: "Professional Experience", icon: Users },
   { id: "education", label: "Contact", icon: GraduationCap },
   { id: "blog", label: "Blog", icon: BookOpen },
 ]

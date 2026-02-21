@@ -33,6 +33,48 @@ const approaches = [
 
 const clients = [
   {
+    name: "The Action Foundation (TAF)",
+    description:
+      "Collaborated with TAF to build a high-impact AI caregiver support ecosystem, utilizing RAG architecture to provide 24/7 empathetic support on WhatsApp for families of children with disabilities.",
+    logo: "https://theactionfoundationkenya.org/wp-content/uploads/2022/03/TAF-Logo.png",
+    website: "https://theactionfoundationkenya.org",
+    highlights: [
+      "1,000+ Caregivers Supported",
+      "95% Information Accuracy", 
+      "24/7 WhatsApp Support",
+      "RAG Architecture System",
+    ],
+    color: "from-emerald-600 to-teal-600",
+  },
+  {
+    name: "Kenyatta University (CDIE Innovation Hub)",
+    description:
+      "Engineered a Smart Laboratory Management System for KU's CDIE Hub, implementing AI-driven SOP automation that streamlines technical documentation for thousands of students and researchers.",
+    logo: "https://mlalyk2fvka4.i.optimole.com/cb:7IGe.234/w:auto/h:auto/q:mauto/f:best/https://cdie.co.ke/wp-content/uploads/2025/04/cdiepng-e1745595003177.png",
+    website: "https://cdie.co.ke",
+    highlights: [
+      "10,000+ Users Impacted",
+      "75% Faster Lab Preparation",
+      "AI SOP Automation",
+      "Institutional Infrastructure",
+    ],
+    color: "from-blue-600 to-cyan-600",
+  },
+  {
+    name: "Agian Solutions",
+    description:
+      "Architected a national scale employment platform to bridge the gap for opportunity youth across 47 Kenyan counties, featuring a robust automated verification engine for dignified labor placements.",
+    logo: "https://res-console.cloudinary.com/di2rbwzyd/thumbnails/v1/image/upload/v1771687473/YWdpYW4tbG9nb19kZmh2eDQ=/drilldown",
+    website: "https://agiansolutions.co.ke",
+    highlights: [
+      "1,000+ Verified Placements",
+      "47 Counties Covered",
+      "KES 15K Minimum Wage",
+      "National Scale Platform",
+    ],
+    color: "from-amber-600 to-orange-600",
+  },
+  {
     name: "Rightsify Hydra",
     description:
       "AI music generation platform for commercial applications, providing copyright-cleared instrumental music.",
@@ -153,7 +195,7 @@ export default function CombinedPhilosophy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden"
+            className="client-card rounded-2xl shadow-xl overflow-hidden"
           >
             <div className={`bg-gradient-to-r ${client.color} p-6 text-white`}>
               <div className="flex items-center mb-4">
