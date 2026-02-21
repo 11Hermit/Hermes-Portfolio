@@ -57,7 +57,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("hero")
   const [isTransitioning, setIsTransitioning] = useState(false)
   const activeSectionRef = useRef<HTMLDivElement>(null)
-  const wheelTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const wheelTimeoutRef = useRef<NodeJS.Timeout>()
   const lastWheelTime = useRef(0)
 
   const handleSectionChange = (sectionId: string) => {
@@ -166,11 +166,10 @@ export default function Home() {
   }, [activeSection, isTransitioning])
 
   useEffect(() => {
-    const handleCustomNavigation = (event: Event) => {
-      const customEvent = event as CustomEvent;
-      const { sectionId } = customEvent.detail;
-      handleSectionChange(sectionId);
-    };
+    const handleCustomNavigation = (event) => {
+      const { sectionId } = event.detail
+      handleSectionChange(sectionId)
+    }
 
     window.addEventListener("navigateToSection", handleCustomNavigation)
 

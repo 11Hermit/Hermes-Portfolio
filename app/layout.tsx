@@ -1,4 +1,4 @@
-// import "./globals.css"
+import "./globals.css"
 import { Inter } from "next/font/google"
 import type React from "react"
 import { ThemeProvider } from "@/components/theme-provider"
