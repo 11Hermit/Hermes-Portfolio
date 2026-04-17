@@ -41,7 +41,7 @@ const experiences = [
     company: "iMerit Technology",
     location: "Remote (US)",
     period: "Nov 2025 - March 2026",
-    role: "RL Environment & LLM Evaluation Engineer (Contract)",
+    role: "RL Environment and LLM Evaluation Engineer (Contract)",
     icon: <Brain className="w-6 h-6" />,
     color: "from-purple-500 to-pink-500",
     highlights: [
@@ -57,7 +57,7 @@ const experiences = [
     company: "Wan AI Labs",
     location: "Nairobi, Kenya",
     period: "Oct 2024 - Sept 2025",
-    role: "Lead AI Engineer (Agentic Systems & LLM Deployment)",
+    role: "Lead AI Engineer (Agentic Systems and LLM Deployment)",
     icon: <Sparkles className="w-6 h-6" />,
     color: "from-teal-500 to-cyan-500",
     highlights: [
@@ -133,7 +133,7 @@ const experiences = [
     company: "ANALYTICS VIDHYA",
     location: "Gurgaon, India",
     period: "Sep 2022 - Dec 2022",
-    role: "Technical Writer – Data (Seasonal)",
+    role: "Technical Writer - Data (Seasonal)",
     icon: <BookOpen className="w-6 h-6" />,
     color: "from-amber-500 to-yellow-500",
     highlights: [
