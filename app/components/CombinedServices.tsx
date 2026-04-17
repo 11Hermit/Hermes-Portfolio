@@ -1,5 +1,6 @@
 "use client"
 
+// Professional experience component with updated data from resume
 import { motion } from "framer-motion"
 import { Brain, Bot, Database, Zap, GitBranch, Cpu, Briefcase, Calendar, MapPin, Building2, Code, Users, BookOpen, Sparkles, Globe } from "lucide-react"
 
