@@ -92,11 +92,10 @@ export default function Hero() {
                 className="text-xl md:text-2xl mb-6 leading-relaxed"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                I architect and deploy production-grade AI systems, full-stack applications, 
-                and data infrastructure that drive measurable business impact. 
-                From LLM pipelines and agentic AI to scalable web platforms and enterprise solutions, 
-                I bridge the gap between cutting-edge AI and robust software engineering.
-                6+ years. 22+ production systems. Real quantifiable outcomes.
+                I engineer production-grade AI systems from the ground up — training transformer models from scratch, 
+                building RL environments, and deploying agentic systems that actually work. 
+                From attention mechanisms to distributed training pipelines, I turn research papers into 
+                shipping code. 6+ years. 22+ production systems. Real quantifiable impact.
               </p>
             </div>
 

@@ -121,12 +121,14 @@ Full Stack AI Engineer with 6+ years building intelligent applications that leve
 
 ## 💼 Professional Experience
 
-- **Senior AI Engineer** at **Wan AI Labs** (Jun 2023 - Present)
-- **AI Software Engineer** at **Rightsify Group LLC** (Jun 2023 - Aug 2024)
-- **Software Developer** at **Zuri Health** (Jan 2023 - April 2023)
-- **Machine Learning Engineer** at **Upwork** (Feb 2021 - Sep 2022)
-- **AI Facilitator/Trainer** at **Google Crowdsource** (Aug 2021 - Present)
-- **Technical Writer** at **Analytics Vidhya** (Sep 2022 - Dec 2022)
+- **RL Environment & LLM Evaluation Engineer (Contract)** at **iMerit Technology** (Nov 2025 - March 2026)
+- **Lead AI Engineer (Agentic Systems & LLM Deployment)** at **Wan AI Labs** (Oct 2024 - Sept 2025)
+- **AI Engineer (Audio Generative LLMs)** at **Rightsify Group LLC** (Jun 2023 - Aug 2024)
+- **Software Developer** at **ZURI HEALTH** (Jan 2023 - April 2023)
+- **Machine Learning Engineer - Freelance** at **Upwork** (Feb 2021 - Sep 2022)
+- **AI Facilitator/Trainer - Part-time** at **Google Crowdsource** (Aug 2021 - Present)
+- **Technical Writer – Data (Seasonal)** at **ANALYTICS VIDHYA** (Sep 2022 - Dec 2022)
+- **Machine Learning Trainer** at **TEENS IN AI** (Aug 2019 - Sep 2019)
 
 ## 🎓 Education
 
