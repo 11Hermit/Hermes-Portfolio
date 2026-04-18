@@ -57,7 +57,19 @@ Full Stack AI Engineer with 6+ years building intelligent applications that leve
 <table>
   <tr>
     <td width="50%">
-      <h3 align="center">The Action Foundation (TAF) 🤝</h3>
+      <h3 align="center">DriveSmart AI 🚗</h3>
+      <p align="center">
+        <a href="https://drivesmart.wanailabs.org" target="_blank">
+          <img src="https://img.shields.io/badge/Visit-202020?style=for-the-badge&logo=globe&logoColor=white">
+        </a>
+      </p>
+      <p align="center">WhatsApp-Powered AI Assistant that gives every driving school learner a 24/7 intelligent assistant trained on the school's own materials. Learners ask via text, voice, or photo and get accurate answers instantly.</p>
+      <p align="center">
+        <strong>80% Retention</strong> • <strong>24/7 Availability</strong> • <strong>Zero App Downloads</strong>
+      </p>
+    </td>
+    <td width="50%">
+      <h3 align="center">The Action Foundation (TAF) �</h3>
       <p align="center">
         <a href="https://aichat.theactionfoundationkenya.org" target="_blank">
           <img src="https://img.shields.io/badge/Visit-202020?style=for-the-badge&logo=globe&logoColor=white">
@@ -68,6 +80,8 @@ Full Stack AI Engineer with 6+ years building intelligent applications that leve
         <strong>1,000+ Caregivers</strong> • <strong>95% Accuracy</strong> • <strong>24/7 Support</strong>
       </p>
     </td>
+  </tr>
+  <tr>
     <td width="50%">
       <h3 align="center">CDIE UMS 🧪</h3>
       <p align="center">
@@ -80,10 +94,8 @@ Full Stack AI Engineer with 6+ years building intelligent applications that leve
         <strong>10,000+ Users</strong> • <strong>75% Faster Prep</strong> • <strong>Real-time Tracking</strong>
       </p>
     </td>
-  </tr>
-  <tr>
     <td width="50%">
-      <h3 align="center">Agian Solutions 💼</h3>
+      <h3 align="center">Agian Solutions �</h3>
       <p align="center">
         <a href="https://jobs.agiansolutions.co.ke" target="_blank">
           <img src="https://img.shields.io/badge/Visit-202020?style=for-the-badge&logo=globe&logoColor=white">
@@ -92,18 +104,6 @@ Full Stack AI Engineer with 6+ years building intelligent applications that leve
       <p align="center">Comprehensive labor market platform connecting Kenyan youth with dignified employment through automated placement tracking and multi-stakeholder verification across 47 counties.</p>
       <p align="center">
         <strong>1,000+ Placements</strong> • <strong>47 Counties</strong> • <strong>KES 15K Minimum Wage</strong>
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center">TenderAI 📊</h3>
-      <p align="center">
-        <a href="https://tenderai-rosy.vercel.app/" target="_blank">
-          <img src="https://img.shields.io/badge/Visit-202020?style=for-the-badge&logo=globe&logoColor=white">
-        </a>
-      </p>
-      <p align="center">AI-powered platform that automates tender analysis, scoring, and recommendation to streamline bid preparation and improve success rates for consulting companies.</p>
-      <p align="center">
-        <strong>95% Accuracy</strong> • <strong>10x Faster</strong> • <strong>50+ Platforms</strong>
       </p>
     </td>
   </tr>

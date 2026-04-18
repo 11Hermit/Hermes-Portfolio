@@ -11,6 +11,31 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "DriveSmart AI",
+      description:
+        "WhatsApp-Powered AI Assistant that gives every driving school learner a 24/7 intelligent assistant trained on the school's own materials. Learners ask via text, voice, or photo and get accurate answers instantly, solving the 80% knowledge retention problem after learners leave the classroom.",
+      image: "/images/drivesmart.png",
+      url: "https://drivesmart.wanailabs.org",
+      demoUrl: "https://drivesmart.wanailabs.org",
+      features: [
+        "Text Questions - learners type any driving question and get accurate answers",
+        "Voice Notes - AI transcribes voice notes and replies with spoken audio responses",
+        "Image Recognition - photograph road signs and get instant explanations",
+        "Live Web Search - get up-to-date information on recent regulatory changes",
+        "Instructor Dashboard - upload materials, manage content, view analytics",
+        "AI Brain - intelligent engine that understands uploaded training materials",
+        "WhatsApp Channel - no app downloads, zero learning curve for learners",
+        "Scales from 20 learners to 2,000 without additional staff needed",
+      ],
+      techStack: "WhatsApp API · LLMs · Image Recognition · Voice Transcription · Web Search · React · Python",
+      stats: [
+        { value: "80%", label: "Knowledge Retention Improvement" },
+        { value: "24/7", label: "Availability" },
+        { value: "Instant", label: "Response Time" },
+        { value: "Zero", label: "App Downloads Needed" },
+      ],
+    },
+    {
       title: "The Action Foundation (TAF) — AI Caregiver Support Ecosystem",
       description:
         "Multi-modal AI support system for caregivers of children with disabilities, bridging critical information gaps across Sub-Saharan Africa. Developed an empathetic, intelligent WhatsApp chatbot and admin ecosystem. The system leverages a custom RAG architecture to provide instant, accurate answers from a specialized medical and legal knowledge base, serving a vulnerable community with real-time support.",
@@ -396,7 +421,9 @@ export default function Projects() {
                       style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
                     >
                       <div className="flex items-center" style={{ color: 'var(--color-text)' }}>
-                        {project.title.includes("The Action Foundation") ? (
+                        {project.title === "DriveSmart AI" ? (
+                          <MessageSquare className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
+                        ) : project.title.includes("The Action Foundation") ? (
                           <MessageSquare className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         ) : project.title.includes("CDIE") ? (
                           <FlaskConical className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
@@ -412,19 +439,21 @@ export default function Projects() {
                           <Code className="w-5 h-5 mr-2" style={{ color: 'var(--color-accent)' }} />
                         )}
                         <span className="text-sm font-medium">
-                          {project.title.includes("The Action Foundation")
-                            ? "AI Caregiver Support Ecosystem"
-                            : project.title.includes("CDIE")
-                              ? "Smart Lab Orchestration & SOP Automation"
-                              : project.title.includes("Agian")
-                                ? "Dignified Employment Ecosystem"
-                                : project.title === "Ruphids Autotech Solutions"
-                                  ? "School Security & Biometric Systems"
-                                  : project.title === "TenderAI"
-                                    ? "AI-Powered Tender Analysis"
-                                    : project.title === "Bootyque POS"
-                                      ? "Fashion Boutique POS System"
-                                      : "AI-Powered Real Estate Data Processing"}
+                          {project.title === "DriveSmart AI"
+                            ? "WhatsApp-Powered AI Assistant"
+                            : project.title.includes("The Action Foundation")
+                              ? "AI Caregiver Support Ecosystem"
+                              : project.title.includes("CDIE")
+                                ? "Smart Lab Orchestration & SOP Automation"
+                                : project.title.includes("Agian")
+                                  ? "Dignified Employment Ecosystem"
+                                  : project.title === "Ruphids Autotech Solutions"
+                                    ? "School Security & Biometric Systems"
+                                    : project.title === "TenderAI"
+                                      ? "AI-Powered Tender Analysis"
+                                      : project.title === "Bootyque POS"
+                                        ? "Fashion Boutique POS System"
+                                        : "AI-Powered Real Estate Data Processing"}
                         </span>
                       </div>
                     </div>
