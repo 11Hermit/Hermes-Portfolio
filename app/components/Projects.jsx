@@ -1,5 +1,6 @@
 "use client"
 
+// DriveSmart AI project with image at /images/drivesmart.png
 import { motion } from "framer-motion"
 import { ExternalLink, Code, ArrowRight, Shield, Bell, MessageSquare, Youtube, FlaskConical, Briefcase } from "lucide-react"
 import Image from "next/image"
