@@ -1,0 +1,169 @@
+
+
+ASHTONE ONYANGO OMONDI 
+AI Software Engineer | Agentic AI & LLM Systems for Social Impact 
+Nairobi, Kenya | Tel: +254740497975 
+ashtoneonyango@gmail.com | LinkedIn | GitHub | My Portfolio 
+PROFESSIONAL SUMMARY 
+AI  Software  Engineer  with  6+  years  building  and  shipping  production  software  that  people  depend  on:  a 
+conversational  triage  system  serving  5,000+  users,  a  retrieval-grounded  caregiver  assistant  serving  1,000+ 
+caregivers for an NGO, and 20+ agentic systems across healthcare, legal and enterprise operations. Specialises 
+in  backend  services,  APIs,  cloud  infrastructure  and  CI/CD  for  LLM-powered  applications,  with  automated 
+evaluation suites that decide whether a system is safe to release. Biomedical engineer by training, with a record 
+of leading teams of up to 8 engineers, mentoring 150+ practitioners, running cross-border technical partnerships 
+and shipping for nonprofit and public-interest organisations in Africa. 
+SKILLS AND COMPETENCIES 
+• Agentic AI & LLM Applications: LangChain, CrewAI, RAG, Tool-using Agents, Prompt and 
+Workflow Design, Pinecone, FAISS, Redis 
+• Evaluation & Safety: Evaluation Dataset Design, LLM-as-Judge Scoring, Ground-truth 
+Verification, Adversarial and Edge-case Testing, Failure-mode and Reward-hacking Analysis 
+• Modelling: PyTorch, HuggingFace Transformers, TensorFlow, SFT and RLHF, Distributed 
+Training (DDP), Attention Mechanisms, Tokenizers, Inference Optimization 
+• MLOps & Infra: Docker, Kubernetes, AWS (SageMaker, Lambda, S3), GCP (Vertex AI, 
+BigQuery), CI/CD (GitHub Actions, Jenkins), Reproducible Environments, Git 
+• Languages: Python (advanced), JavaScript, TypeScript, SQL, Bash. 
+• Frontend: React, Next.js, TypeScript, HTML5, CSS3, Tailwind CSS, Redux, Responsive UI Design 
+• Backend & APIs: Node.js, Express, FastAPI, Flask, Django, REST/GraphQL APIs, OAuth 2.0 
+• Testing & Practices: Jest, Pytest, Unit and Integration Testing, Code Review, Agile/Scrum 
+• Data & Pipelines: Apache Spark, Kafka, Airbyte, PostgreSQL, MySQL, MongoDB, Redis 
+• Research: ML Paper Implementation, Automated Scoring Pipelines, STEM Problem Engineering 
+WORK EXPERIENCE 
+Kujia, Nairobi, Kenya Apr 2026 – Sept 2026 
+Head of Kujia Digital Programs (Kujia Digitize) 
+• Designed and built the organisation’s entire software infrastructure: web platform, internship 
+placement portal, data layer, hosting and deployment workflows, so a team of 6 could ship and 
+maintain 5 digital products within 6 months without outside engineering support, cutting annual 
+hosting and tooling costs by 35%. [Link] 
+• Led the technical partnership between Kujia and WeShareApps, a London-based software 
+distribution company: scoped API integrations, set delivery milestones and kept engineering aligned 
+across two time zones, delivering 3 partner integrations on schedule. 
+
+• Owned the digital programmes roadmap, translating programme goals into 12 prioritised 
+deliverables across a six-month plan and setting the code-review and release standards a team of 6 
+built to. 
+• Shipped AI features to production for the placements programme, including the semantic job-
+matching engine (see Key Projects), lifting successful intern match rates by 28%. 
+iMerit Technology, Remote (US) Nov 2025 – March 2026 
+RL Environment & LLM Evaluation Engineer (Contract) 
+• Wrote 150+ test cases and multi-step reasoning chains as an automated test suite for GPT-4, Claude 
+and Gemini, documenting failure modes and reward-hacking vectors; 40% broke at least one 
+frontier model. 
+• Built automated scoring services and verified ground-truth solutions in Python (NumPy, Pandas) 
+and SQL, implementing judge logic that doubles as a continuous reward signal, reaching 98% 
+agreement with expert-verified answers. 
+• Engineered original STEM and data science problems modelled on real scientific workflows; 
+shipped datasets through reproducible Docker environments and CI/CD pipelines on AWS/GCP, 
+with 100% on-time delivery over 5 months. 
+• Acted as the link between 30+ expert annotators and AI systems, improving annotation tooling and 
+workflows to raise first-pass acceptance rates by 25%. 
+Wan AI Labs, Nairobi, Kenya Oct 2024 – Sept 2025 
+Lead AI Engineer (Agentic Systems & LLM Deployment) 
+• Led the AI division (team of 8), building and shipping production-grade agentic software with 
+LLMs (GPT-4, Claude, Gemini) and fine-tuned models across healthcare, legal and enterprise 
+operations. 
+• Designed, built and deployed 20+ AI systems using LangChain and CrewAI, automating complex 
+workflows and producing 40% productivity gains and a 60% reduction in manual operations, saving 
+clients an estimated $150K a year in operating costs. 
+• Owned integration with enterprise systems via GraphQL APIs and Kafka pipelines, managing the 
+full lifecycle from model selection through deployment and monitoring, sustaining 99.5% uptime. 
+• Ran iterative release cycles driven by structured human feedback, the loop behind RLHF pipeline 
+design and reward model training; accuracy rose 18% between releases and client retention held at 
+90%. 
+Rightsify Group LLC, Pasadena, California (Remote) Jun 2023 – Aug 2024 
+AI Engineer (Audio Generative LLMs) 
+• Architected and built, within a team of 5 engineers, custom transformer models from scratch for 
+music generation, serving thousands of daily users; built the full pipeline from data preprocessing to 
+evaluation. 
+• Applied reinforcement learning with feedback loops and rewards for a 20% improvement in model 
+performance, and built monitoring tools to continuously track output quality in production. 
+• Designed distributed training pipelines on AWS with PyTorch and HuggingFace, cutting training 
+time by 60% across 1M+ audio samples and lowering compute spend by 30%. 
+• Implemented CI/CD for model deployment with Docker and Kubernetes, reducing deployment 
+time from 4 hours to 15 minutes; migrated 10TB+ of datasets from AWS S3 to GCP. 
+
+Zuri Health, Nairobi, Kenya Jan 2023 – April 2023 
+Software Developer 
+• As part of a 7-person platform team, built a conversational AI triage system using NLP and RAG 
+architecture, serving 5,000+ users at 92% diagnostic accuracy, reducing query resolution time by 
+30% and cutting escalations to human agents by 35%. 
+• Improved retrieval over medical information, making answers 40% more relevant; built analytics 
+pipelines over user interaction data from 4 countries, informing 3 product changes. 
+Google Crowdsource, Nairobi, Kenya Aug 2021 – Present 
+AI Facilitator/Trainer - Part-time 
+• Facilitated 11+ hands-on workshops covering LLM fine-tuning, NLP and cloud deployment (AWS 
+SageMaker, GCP Vertex AI) for 33+ university students across Africa, raising post-workshop 
+deployment assessment scores by 45%. 
+• Support a community of 5,000+ AI contributors, with 85% workshop completion and a 4.7/5 
+average participant rating over 5 years. 
+Analytics Vidhya, Gurgaon, India Sept 2022 – Dec 2022 
+Technical Writer – Data (Seasonal) 
+• Wrote and published 3 tutorial articles for the monthly data science blogathon on building ETL 
+pipelines over data from OLAP and OLTP databases, attracting over 50 readers and users to the 
+platform. [Link] 
+• Implemented Flask application backends integrating database APIs for remote Postgres servers 
+hosted locally and in the cloud, cutting query latency by 30%. 
+Upwork, Nairobi, Kenya Feb 2021 – Sept 2022 
+Machine Learning Engineer - Freelance 
+• Delivered 33+ custom software solutions in 20 months on AWS and Azure ML services, sustaining 
+a 100% Job Success Score, implementing semantic search and NLP systems for diverse clients. 
+• Built production-ready GraphQL APIs with Express and React frontends integrating LLM 
+capabilities for intelligent data processing. 
+• Developed distributed Apache Spark pipelines that improved ingestion speed by 65%; built Tableau 
+reporting that saved clients 10+ hours weekly. 
+TEENS IN AI, London, UK Aug 2019 – Sept 2019 
+Machine Learning Trainer 
+• Coached 5 teen girls out of 10 teams in Descriptive and Predictive Analytics using Azure Machine 
+Learning visual tools. 
+• Guided approximately 10 students, producing 5 country-level analyses for 3 industry mentors, in 
+using Azure Machine Learning to analyze access to affordable healthcare by low-income households 
+in 5 countries across Sub-Saharan Africa. 
+EDUCATION 
+KENYATTA UNIVERSITY, Nairobi, Kenya 
+Bachelor of Science, Biomedical Engineering 
+Relevant Coursework: 
+• Health Information Systems, Bioinformatics, Programming; Electronics; Database Systems. 
+
+Certifications: 
+• AWS Machine Learning Engineer Nanodegree; Udacity. 
+• Data Engineer Track; DataCamp. 
+• Full-Stack Developer Nanodegree; Udacity. 
+• Information Security Certification; FreeCodeCamp. 
+• IBM AI Analyst Mastery Award & Explorer Award (2019) 
+• Microsoft IoT & AI Certifications. 
+KEY PROJECTS 
+MleziBora: Agentic AI Caregiver Assistant for The Action Foundation (NGO, Kenya) [Link] 
+• Agentic AI assistant that answers caregivers’ medical and legal questions from a curated knowledge 
+base using retrieval-grounded generation, so responses trace back to vetted source material. Handled 
+15,000+ conversations in its first quarter and cut caregiver response time from about 24 hours to 
+under 3 seconds. 
+• Serves 1,000+ caregivers at 95% information accuracy, measured through an evaluation pipeline 
+designed to score answers against the knowledge base before and after release across 300 test 
+questions, with median response time under 3 seconds. 
+Kujia Placements: Semantic Job Matching Engine [Link] 
+• Custom NLP semantic search engine matching 5,000+ job seekers to opportunities with 90% 
+accuracy, handling 1,000+ daily queries on AWS Lambda with collaborative filtering, cutting manual 
+screening effort by 70%. 
+CDIE Smart Lab: LLM-Powered SOP Automation [Link] 
+• LLM document processing system automating understanding and assessment of lab SOPs for 
+10,000+ university users, achieving 75% faster lab preparation and cutting SOP review errors by 
+30%. Judge-style correctness evaluation at its core. 
+Pneumonia Detection & Monitoring in Infants 
+Huawei Global Innovator Award - Johannesburg, South Africa - April 2022 
+• Trained a neural network from scratch on 5,000+ rows of IoT sensor data to predict infant 
+pneumonia risk, achieving 80% accuracy. Awarded at the Huawei Global Innovator Summit, 
+Johannesburg. 
+ACTIVITIES 
+IEEE Engineering in Medicine and Biology Society (EMBS), KU Chapter, Nairobi, Kenya  
+Vice Chair (Sept 2020 – March 2022); Member (Sept 2020 – Nov 2022) 
+• Increased member registration by 40% and event participation by 50%; organized technical 
+workshops on innovation for healthcare technology. 
+• Facilitated 8 machine learning sessions on using healthcare data to assist diagnosis and improve 
+patient outcomes. 
+• Organized 6 public lectures with local and global industry professionals that led to 20+ student-
+employer pairings, and collaborated with other engineering communities on innovation and career 
+fairs drawing 500+ attendees. 
+
+Google Developers Student Club, Nairobi, Kenya Sept 2020 – Aug 2021 
+Machine Learning Lead 
+• Led 3 Machine Learning competitions for over 40 students, increasing their Cloud Analytics skills in 
+GCP and TensorFlow. 

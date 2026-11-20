@@ -1,8 +1,6 @@
 "use client"
 
-import Image from "next/image"
 import { Linkedin, Mail, ArrowDown, Phone, Sparkles, Github } from "lucide-react"
-import { motion } from "framer-motion"
 
 const CodePattern = () => (
   <svg className="absolute inset-0 size-full opacity-[0.035]" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -16,25 +14,16 @@ const CodePattern = () => (
 )
 
 export default function Hero() {
+  const openProjects = () => {
+    void import("./Projects").catch(() => undefined)
+    window.dispatchEvent(new CustomEvent("navigateToSection", { detail: { sectionId: "projects" } }))
+  }
+
   return (
     <section className="hero-glow relative min-h-screen overflow-hidden" aria-labelledby="hero-title">
-      <div className="absolute inset-0" aria-hidden="true"><CodePattern /></div>
-      <div className="absolute inset-0 z-0 opacity-[0.08]" aria-hidden="true">
-        <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/agentic%20ai-rzv4kWbyf0ZbxOrSYS6nIMENS9KNgi.png"
-          alt=""
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true"><CodePattern /></div>
       <div className="container relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pb-16 pt-28 sm:px-10">
-        <motion.div
-          className="max-w-4xl"
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65 }}
-        >
+        <div className="max-w-4xl">
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-2 text-sm text-primary">
             <Sparkles className="size-4" aria-hidden="true" />
             <span>AI Software Engineer · Nairobi, Kenya</span>
@@ -50,18 +39,16 @@ export default function Hero() {
             Six-plus years across backend engineering, APIs, cloud infrastructure and CI/CD. Biomedical engineer by training; focused on safe, measurable software for social impact.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <motion.button
+            <button
               type="button"
-              onClick={() => window.dispatchEvent(new CustomEvent("navigateToSection", { detail: { sectionId: "projects" } }))}
+              onClick={openProjects}
               className="btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
             >
               Explore selected work <ArrowDown className="size-4" aria-hidden="true" />
-            </motion.button>
+            </button>
             <a
-              href="/Ashtone-Onyango-AI-Software-Engineer.docx"
-              download
+              href="/Ashtone-Onyango-AI-Software-Engineer.pdf"
+              download="Ashtone-Onyango-AI-Software-Engineer.pdf"
               className="btn-secondary inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold"
             >
               Download résumé
@@ -78,7 +65,7 @@ export default function Hero() {
             <div><p className="stat-number text-3xl font-bold">5,000+</p><p className="mt-1 text-xs leading-5 text-muted-foreground sm:text-sm">triage users served</p></div>
             <div><p className="stat-number text-3xl font-bold">1,000+</p><p className="mt-1 text-xs leading-5 text-muted-foreground sm:text-sm">caregivers supported</p></div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

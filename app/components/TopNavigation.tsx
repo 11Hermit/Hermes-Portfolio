@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
 import { BriefcaseBusiness, Code2, Home, Mail, Menu, X } from "lucide-react"
 import { ModeToggle } from "@/components/mode-toggle"
 
@@ -13,6 +12,13 @@ const navigationItems = [
   { id: "contact", label: "Contact", icon: Mail },
 ]
 
+const sectionPrefetchers: Partial<Record<string, () => Promise<unknown>>> = {
+  expertise: () => import("./CombinedExpertise"),
+  projects: () => import("./Projects"),
+  experience: () => import("./CombinedServices"),
+  contact: () => import("./CombinedEducationContact"),
+}
+
 interface TopNavigationProps {
   activeSection: string
   onSectionChange: (sectionId: string) => void
@@ -23,6 +29,9 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
   const navigate = (sectionId: string) => {
     onSectionChange(sectionId)
     setMobileMenuOpen(false)
+  }
+  const prefetch = (sectionId: string) => {
+    void sectionPrefetchers[sectionId]?.().catch(() => undefined)
   }
 
   return (
@@ -38,7 +47,15 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
             const Icon = item.icon
             const selected = activeSection === item.id
             return (
-              <button key={item.id} type="button" onClick={() => navigate(item.id)} aria-current={selected ? "page" : undefined} className={`inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm transition-colors ${selected ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => navigate(item.id)}
+                onPointerEnter={() => prefetch(item.id)}
+                onFocus={() => prefetch(item.id)}
+                aria-current={selected ? "page" : undefined}
+                className={`inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm transition-colors ${selected ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
+              >
                 <Icon className="size-4" aria-hidden="true" />{item.label}
               </button>
             )
@@ -53,20 +70,30 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
         </div>
       </nav>
 
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div id="mobile-navigation" className="border-t border-border bg-background px-4 pb-4 pt-2 md:hidden" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.18 }}>
-            <div className="flex flex-col gap-1">
-              {navigationItems.map((item) => {
-                const Icon = item.icon
-                const selected = activeSection === item.id
-                return <button key={item.id} type="button" onClick={() => navigate(item.id)} aria-current={selected ? "page" : undefined} className={`flex items-center gap-3 rounded-lg px-3 py-3 text-left text-sm ${selected ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted"}`}><Icon className="size-4" aria-hidden="true" />{item.label}</button>
-              })}
-              <div className="pt-2"><ModeToggle /></div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {mobileMenuOpen && (
+        <div id="mobile-navigation" className="mobile-menu-enter border-t border-border bg-background px-4 pb-4 pt-2 md:hidden">
+          <div className="flex flex-col gap-1">
+            {navigationItems.map((item) => {
+              const Icon = item.icon
+              const selected = activeSection === item.id
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => navigate(item.id)}
+                  onTouchStart={() => prefetch(item.id)}
+                  onFocus={() => prefetch(item.id)}
+                  aria-current={selected ? "page" : undefined}
+                  className={`flex items-center gap-3 rounded-lg px-3 py-3 text-left text-sm ${selected ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted"}`}
+                >
+                  <Icon className="size-4" aria-hidden="true" />{item.label}
+                </button>
+              )
+            })}
+            <div className="pt-2"><ModeToggle /></div>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

@@ -1,21 +1,39 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
 import TopNavigation from "./components/TopNavigation"
 import FullPageSection from "./components/FullPageSection"
 import Hero from "./components/Hero"
-import CombinedExpertise from "./components/CombinedExpertise"
-import Projects from "./components/Projects"
-import CombinedServices from "./components/CombinedServices"
-import CombinedEducationContact from "./components/CombinedEducationContact"
+
+function SectionLoading({ label }: { label: string }) {
+  return (
+    <div className="flex min-h-[55vh] items-center justify-center px-6" role="status" aria-live="polite" aria-atomic="true">
+      <span className="mr-3 size-4 animate-spin rounded-full border-2 border-primary border-r-transparent motion-reduce:animate-none" aria-hidden="true" />
+      <span className="text-sm text-muted-foreground">Loading {label}…</span>
+    </div>
+  )
+}
+
+const Expertise = dynamic(() => import("./components/CombinedExpertise"), {
+  loading: () => <SectionLoading label="engineering expertise" />,
+})
+const Projects = dynamic(() => import("./components/Projects"), {
+  loading: () => <SectionLoading label="selected projects" />,
+})
+const Experience = dynamic(() => import("./components/CombinedServices"), {
+  loading: () => <SectionLoading label="experience" />,
+})
+const Contact = dynamic(() => import("./components/CombinedEducationContact"), {
+  loading: () => <SectionLoading label="contact information" />,
+})
 
 const sections = [
   { id: "hero", component: Hero, bgClass: "section-base" },
-  { id: "expertise", component: CombinedExpertise, bgClass: "section-surface" },
+  { id: "expertise", component: Expertise, bgClass: "section-surface" },
   { id: "projects", component: Projects, bgClass: "section-base" },
-  { id: "experience", component: CombinedServices, bgClass: "section-surface" },
-  { id: "contact", component: CombinedEducationContact, bgClass: "section-base" },
+  { id: "experience", component: Experience, bgClass: "section-surface" },
+  { id: "contact", component: Contact, bgClass: "section-base" },
 ]
 
 export default function Home() {
@@ -29,7 +47,7 @@ export default function Home() {
     setActiveSection(sectionId)
     setIsTransitioning(true)
     if (transitionTimeoutRef.current) window.clearTimeout(transitionTimeoutRef.current)
-    transitionTimeoutRef.current = window.setTimeout(() => setIsTransitioning(false), 400)
+    transitionTimeoutRef.current = window.setTimeout(() => setIsTransitioning(false), 300)
   }, [])
 
   const canChangeSection = (direction: "up" | "down") => {
@@ -97,31 +115,21 @@ export default function Home() {
     <main className="relative min-h-screen">
       <TopNavigation activeSection={activeSection} onSectionChange={handleSectionChange} />
 
-      <AnimatePresence mode="wait" initial={false}>
-        {sections.map((section) => {
-          if (section.id !== activeSection) return null
-          const SectionComponent = section.component
+      {sections.map((section) => {
+        if (section.id !== activeSection) return null
+        const ActiveSection = section.component
 
-          return (
-            <motion.div
-              key={section.id}
-              data-section={section.id}
-              className={`fixed inset-0 ${section.bgClass}`}
-              initial={{ opacity: 0, scale: 0.985 }}
-              animate={{ opacity: 1, scale: 1, zIndex: 10 }}
-              exit={{ opacity: 0, scale: 1.01 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <FullPageSection id={section.id} isActive className={section.bgClass}>
-                <SectionComponent />
-              </FullPageSection>
-            </motion.div>
-          )
-        })}
-      </AnimatePresence>
+        return (
+          <div key={section.id} data-section={section.id} className={`section-panel fixed inset-0 ${section.bgClass}`}>
+            <FullPageSection id={section.id} className={section.bgClass}>
+              <ActiveSection />
+            </FullPageSection>
+          </div>
+        )
+      })}
 
       <div className="fixed right-6 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-3 lg:flex" aria-label="Section navigation">
-        {sections.map((section, index) => (
+        {sections.map((section) => (
           <button
             key={section.id}
             type="button"
@@ -132,19 +140,6 @@ export default function Home() {
           />
         ))}
       </div>
-
-      <AnimatePresence>
-        {isTransitioning && (
-          <motion.div
-            className="pointer-events-none fixed inset-0 z-40 bg-background/10 backdrop-blur-[1px]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.15 }}
-            aria-hidden="true"
-          />
-        )}
-      </AnimatePresence>
     </main>
   )
 }
