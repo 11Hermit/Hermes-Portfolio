@@ -5,6 +5,7 @@
 
 # next.js
 /.next/
+/.next-dev/
 /out/
 
 # production
@@ -25,3 +26,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/data/Ashtone_Onyango_Resume_AI_Software_Engineer-fb4085.docx

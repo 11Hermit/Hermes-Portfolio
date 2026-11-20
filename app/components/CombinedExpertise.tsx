@@ -1,155 +1,56 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Brain, Bot, Database, Cloud, Code2, Server, Cpu, GitBranch, Trophy } from "lucide-react"
+import { Brain, Bot, Database, Cloud, Code2, ShieldCheck, Workflow, FlaskConical, Trophy } from "lucide-react"
 
 const skills = [
-  {
-    icon: Brain,
-    name: "LLMs & Generative AI",
-    description: "GPT-4o, Claude, Gemini — fine-tuned, RAG-augmented, and deployed to production with eval frameworks and prompt optimization pipelines.",
-  },
-  {
-    icon: Bot,
-    name: "Agentic AI Systems",
-    description: "Multi-agent orchestration using CrewAI and OpenAI Agents SDK. Context management, tool-calling, and long-running workflows that handle real enterprise load.",
-  },
-  {
-    icon: Database,
-    name: "AI Data Pipelines",
-    description: "Apache Spark, Kafka, Airbyte, and BigQuery pipelines processing millions of records daily. Built for scale, not just for demos.",
-  },
-  {
-    icon: Cloud,
-    name: "Cloud AI Infrastructure",
-    description: "Production deployments on AWS SageMaker, Azure OpenAI, and GCP Vertex AI — with CI/CD, Docker, Kubernetes, and monitoring baked in from day one.",
-  },
-  {
-    icon: Code2,
-    name: "Full-Stack AI Development",
-    description: "End-to-end from model to interface. Python backends, React frontends, GraphQL APIs — everything needed to ship a working AI product, not just a model.",
-  },
-  {
-    icon: Server,
-    name: "Backend AI Systems",
-    description: "FastAPI, Express.js, and GraphQL (Graphene/Apollo) backends handling high-throughput AI inference with vector database integration and caching.",
-  },
-  {
-    icon: GitBranch,
-    name: "MLOps & Model Management",
-    description: "Model versioning, A/B testing, deployment pipelines, and monitoring. Cut deployment time from 4 hours to 15 minutes using Docker and Kubernetes CI/CD.",
-  },
-  {
-    icon: Cpu,
-    name: "AI Model Optimization",
-    description: "Latency reduction through quantization, caching strategies, and model distillation. 70% latency reduction while maintaining 99.9% accuracy on production systems.",
-  },
+  { icon: Bot, name: "Agentic AI & LLMs", description: "Tool-using agents, workflow design and retrieval-grounded generation with LangChain, CrewAI, Pinecone and FAISS." },
+  { icon: ShieldCheck, name: "Evaluation & safety", description: "Evaluation datasets, LLM-as-judge scoring, ground-truth verification, adversarial tests and failure-mode analysis." },
+  { icon: Brain, name: "Model engineering", description: "PyTorch, Hugging Face Transformers, TensorFlow, SFT/RLHF, distributed training and inference optimization." },
+  { icon: Cloud, name: "MLOps & infrastructure", description: "Reproducible Docker environments, Kubernetes, GitHub Actions and Jenkins, AWS SageMaker/Lambda/S3, and GCP Vertex AI." },
+  { icon: Code2, name: "Backend & product engineering", description: "Python, TypeScript, Node.js, FastAPI, Flask, React, Next.js, REST and GraphQL APIs." },
+  { icon: Database, name: "Data systems", description: "PostgreSQL, MySQL, MongoDB, Redis, Apache Spark, Kafka, Airbyte and BigQuery data pipelines." },
+  { icon: Workflow, name: "Reliable software delivery", description: "Jest and Pytest, unit and integration testing, CI/CD, code review, Agile delivery and production monitoring." },
+  { icon: FlaskConical, name: "Applied research", description: "Implementing ML papers, engineering STEM evaluation tasks and translating experiments into maintainable software." },
 ]
 
 export default function CombinedExpertise() {
   return (
-    <div className="container mx-auto px-6 relative z-10">
-      <motion.div
-        className="text-center mb-12"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 
-          className="text-5xl font-bold mb-6 hero-heading"
-          style={{ color: 'var(--color-text)' }}
-        >
-          AI Engineering Expertise
-        </h2>
-        <p 
-          className="text-xl max-w-4xl mx-auto leading-relaxed"
-          style={{ color: 'var(--color-text-muted)' }}
-        >
-          I don't build AI demos. I build systems that survive production. Six years of shipping 
-          LLM pipelines, agentic automation workflows, and data infrastructure for clients in healthcare, fintech, 
-          enterprise, and governance. The metric I care about: does it work when real users hit it?
+    <section className="container mx-auto max-w-7xl px-6 py-14 sm:px-10" aria-labelledby="expertise-title">
+      <motion.div className="mb-10 max-w-3xl" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+        <p className="section-label mb-3">How I work</p>
+        <h2 id="expertise-title" className="hero-heading mb-4 text-4xl font-bold text-foreground sm:text-5xl">AI engineering, end to end.</h2>
+        <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+          I work across the full path from model behavior to dependable software: designing APIs, grounding model responses, evaluating risk, and operating systems in production.
         </p>
       </motion.div>
 
-      {/* Key Metrics - Flat Dark Surface with Teal Numbers */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-12 rounded-2xl p-8 stats-banner"
-      >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
-            <div className="text-4xl font-bold stat-number">6+</div>
-            <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Yrs Production AI</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold stat-number">22+</div>
-            <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Systems Deployed</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold stat-number">KES 2M+</div>
-            <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Savings Generated</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold stat-number">96.3%</div>
-            <div className="text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>Uptime Maintained</div>
-          </div>
-        </div>
+      <motion.div className="stats-banner mb-10 grid grid-cols-2 gap-5 rounded-2xl p-6 sm:grid-cols-4 sm:p-8" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45 }}>
+        {[
+          { value: "6+", label: "Years building software" },
+          { value: "20+", label: "AI systems shipped" },
+          { value: "8", label: "Engineers led" },
+          { value: "150+", label: "Practitioners mentored" },
+        ].map((stat) => <div key={stat.label}><p className="stat-number text-3xl font-bold sm:text-4xl">{stat.value}</p><p className="mt-1 text-sm text-muted-foreground">{stat.label}</p></div>)}
       </motion.div>
 
-      {/* Huawei Award Recognition */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="recognition-strip mb-12"
-      >
-        <Trophy className="w-8 h-8 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-        <div>
-          <div className="font-semibold" style={{ color: 'var(--color-text)' }}>Huawei Global Innovator Award</div>
-          <div className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
-            Johannesburg, South Africa · April 2022 · IoT + Neural Network pneumonia detection · 80% accuracy
-          </div>
-        </div>
+      <motion.div className="recognition-strip mb-10" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45 }}>
+        <Trophy className="size-7 shrink-0 text-primary" aria-hidden="true" />
+        <div><p className="font-semibold text-foreground">Huawei Global Innovator Award</p><p className="text-sm text-muted-foreground">Infant pneumonia risk detection from IoT sensor data · Johannesburg · 2022</p></div>
       </motion.div>
 
-      {/* Skills Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="expertise-card p-6 h-full group cursor-pointer"
-          >
-            <div className="flex flex-col">
-              <div 
-                className="p-3 rounded-lg mb-4 w-fit card-icon-bg"
-              >
-                <skill.icon className="w-6 h-6 card-icon" />
-              </div>
-              <h3 
-                className="text-lg font-semibold mb-2 card-title"
-                style={{ color: 'var(--color-text)' }}
-              >
-                {skill.name}
-              </h3>
-              <p 
-                className="text-sm leading-relaxed"
-                style={{ color: 'var(--color-text-muted)' }}
-              >
-                {skill.description}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {skills.map((skill, index) => {
+          const Icon = skill.icon
+          return (
+            <motion.article key={skill.name} className="expertise-card h-full rounded-xl p-5" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: index * 0.035 }}>
+              <div className="card-icon-bg mb-4 inline-flex rounded-lg p-3"><Icon className="card-icon size-5" aria-hidden="true" /></div>
+              <h3 className="card-title mb-2 text-base text-foreground">{skill.name}</h3>
+              <p className="text-sm leading-6 text-muted-foreground">{skill.description}</p>
+            </motion.article>
+          )
+        })}
       </div>
-    </div>
+    </section>
   )
 }

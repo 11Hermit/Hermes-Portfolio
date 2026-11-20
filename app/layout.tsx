@@ -2,40 +2,27 @@ import "./globals.css"
 import { Inter } from "next/font/google"
 import type React from "react"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ModeToggle } from "@/components/mode-toggle"
-import PhilosophicalBackground from "./components/PhilosophicalBackground"
-import FloatingParticles from "./components/FloatingParticles"
-import ScrollToTop from "./components/ScrollToTop"
-import VoiceAgent from "./components/VoiceAgent"
-import { DynamicFloatingNav } from "./components/client-components"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
-// Update metadata
 export const metadata = {
-  title: "Ashtone Onyango - Full Stack Engineer & AI Developer",
+  title: "Ashtone Onyango Omondi | AI Software Engineer",
   description:
-    "Portfolio of Ashtone Onyango, a Full Stack Engineer specializing in GraphQL, Angular, .NET, and AI solutions.",
-    generator: 'v0.dev'
+    "AI Software Engineer building dependable agentic AI, LLM applications, backend services and cloud infrastructure for healthcare, social impact and enterprise operations.",
+  keywords: ["AI Software Engineer", "Agentic AI", "LLM Systems", "Backend Engineering", "Nairobi", "RAG"],
+  authors: [{ name: "Ashtone Onyango Omondi" }],
+  openGraph: {
+    title: "Ashtone Onyango Omondi | AI Software Engineer",
+    description: "Production AI systems, backend engineering and software for meaningful impact.",
+    type: "website",
+  },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <PhilosophicalBackground />
-          <FloatingParticles />
-          <ScrollToTop />
-          <VoiceAgent />
-          <div className="fixed top-4 right-4 z-50">
-            <ModeToggle />
-          </div>
-          <DynamicFloatingNav />
           {children}
         </ThemeProvider>
       </body>

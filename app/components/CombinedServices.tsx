@@ -1,289 +1,98 @@
 "use client"
 
-// Professional experience component with updated data from resume
 import { motion } from "framer-motion"
-import { Brain, Bot, Database, Zap, GitBranch, Cpu, Briefcase, Calendar, MapPin, Building2, Code, Users, BookOpen, Sparkles, Globe } from "lucide-react"
-
-const services = [
-  {
-    icon: <Brain className="w-10 h-10 text-purple-500" />,
-    title: "Custom LLM Development",
-    description: "End-to-end development of custom language models with fine-tuning and RLHF implementation.",
-  },
-  {
-    icon: <Bot className="w-10 h-10 text-blue-500" />,
-    title: "Agentic AI Systems",
-    description: "Multi-agent systems using CrewAI with intelligent workflow orchestration.",
-  },
-  {
-    icon: <Database className="w-10 h-10 text-green-500" />,
-    title: "RAG System Implementation",
-    description: "Advanced retrieval-augmented generation with vector databases and semantic search.",
-  },
-  {
-    icon: <Zap className="w-10 h-10 text-yellow-500" />,
-    title: "Business Process Automation",
-    description: "AI-driven processes reducing operational costs by 60-70% while improving accuracy.",
-  },
-  {
-    icon: <GitBranch className="w-10 h-10 text-indigo-500" />,
-    title: "MLOps & AI Infrastructure",
-    description: "Production-ready ML pipelines with automated deployment and monitoring.",
-  },
-  {
-    icon: <Cpu className="w-10 h-10 text-pink-500" />,
-    title: "Generative AI Applications",
-    description: "Full-stack AI-powered applications with scalable backend infrastructure.",
-  },
-]
+import { BriefcaseBusiness, CalendarDays, MapPin } from "lucide-react"
 
 const experiences = [
   {
-    company: "iMerit Technology",
-    location: "Remote (US)",
-    period: "Nov 2025 - March 2026",
-    role: "RL Environment and LLM Evaluation Engineer (Contract)",
-    icon: <Brain className="w-6 h-6" />,
-    color: "from-purple-500 to-pink-500",
+    company: "Kujia · Kujia Digitize", location: "Nairobi, Kenya", period: "Apr 2026 – Sep 2026", role: "Head of Kujia Digital Programs",
     highlights: [
-      "Design and build high-precision RL environments and annotation workflows for GenAI training",
-      "Engineer original, computationally intensive STEM problems simulating real-world scientific workflows",
-      "Develop non-trivial reasoning chains and evaluation cases to test GPT-4, Claude, and Gemini",
-      "Configure automated scoring criteria and verify ground-truth solutions using Python and SQL",
-      "Deploy and manage reproducible Docker environments and CI/CD pipelines on AWS/GCP",
-      "Serve as link between expert annotators and AI systems to create high-quality RL training data",
-    ],
+      "Designed and built the organization’s web platform, internship placement portal, data layer, hosting and release workflows, enabling a six-person team to operate five digital products without outside engineering support.",
+      "Reduced annual hosting and tooling costs by 35%; set delivery, code-review and release standards across a 12-deliverable roadmap.",
+      "Led a cross-border technical partnership with WeShareApps and delivered three API integrations; shipped semantic job matching that increased successful intern matches by 28%.",
+    ], technologies: ["TypeScript", "React", "Node.js", "REST APIs", "AWS Lambda", "PostgreSQL", "CI/CD"],
   },
   {
-    company: "Wan AI Labs",
-    location: "Nairobi, Kenya",
-    period: "Oct 2024 - Sept 2025",
-    role: "Lead AI Engineer (Agentic Systems and LLM Deployment)",
-    icon: <Sparkles className="w-6 h-6" />,
-    color: "from-teal-500 to-cyan-500",
+    company: "iMerit Technology", location: "Remote · US", period: "Nov 2025 – Mar 2026", role: "RL Environment & LLM Evaluation Engineer · Contract",
     highlights: [
-      "Led AI division building production-grade agentic systems using LLMs (GPT-4, Claude, Gemini)",
-      "Designed and deployed 20+ AI systems using LangChain and CrewAI across healthcare, legal, and enterprise",
-      "Automated complex workflows, resulting in 40% productivity gains and 60% reduction in manual operations",
-      "Oversaw integration with enterprise systems via GraphQL APIs and Kafka pipelines",
-      "Managed full lifecycle from model selection through production deployment and monitoring",
-      "Facilitated iterative model improvement cycles with structured human feedback for RLHF pipeline design",
-    ],
+      "Created 150+ test cases and multi-step reasoning tasks for GPT-4, Claude and Gemini; documented failure modes and reward-hacking vectors.",
+      "Built automated Python and SQL scoring services with verified ground truth, reaching 98% agreement with expert-reviewed answers.",
+      "Packaged reproducible datasets and evaluation workflows in Docker and AWS/GCP CI/CD; improved first-pass annotation acceptance by 25%.",
+    ], technologies: ["Python", "NumPy", "Pandas", "SQL", "Docker", "AWS", "GCP", "CI/CD"],
   },
   {
-    company: "Rightsify Group LLC",
-    location: "Pasadena, California (Remote)",
-    period: "Jun 2023 - Aug 2024",
-    role: "AI Engineer (Audio Generative LLMs)",
-    icon: <Globe className="w-6 h-6" />,
-    color: "from-blue-500 to-indigo-500",
+    company: "Wan AI Labs", location: "Nairobi, Kenya", period: "Oct 2024 – Sep 2025", role: "Lead AI Engineer · Agentic Systems & LLM Deployment",
     highlights: [
-      "Architected and trained custom transformer LLMs from scratch for music generation serving thousands of daily users",
-      "Built full training pipelines including data preprocessing, model architecture design, and evaluation",
-      "Used reinforcement learning during model training with feedback loops and rewards, achieving 20% improvement",
-      "Designed distributed training pipelines on AWS with PyTorch and HuggingFace, reducing training time by 60%",
-      "Created tools to continuously check and analyze model performance, similar to RL feedback mechanisms",
-      "Implemented CI/CD for ML model deployment with Docker and Kubernetes, reducing deployment time from 4 hours to 15 minutes",
-    ],
+      "Led an eight-engineer AI team building 20+ production agentic systems across healthcare, legal and enterprise operations using LangChain, CrewAI and leading LLMs.",
+      "Automated complex workflows, contributing to 40% productivity gains, 60% less manual operations and an estimated $150K in annual client savings.",
+      "Owned GraphQL and Kafka integrations and production lifecycle; structured human-feedback releases raised accuracy by 18% while systems sustained 99.5% uptime.",
+    ], technologies: ["Python", "LangChain", "CrewAI", "GraphQL", "Kafka", "LLMs", "RLHF"],
   },
   {
-    company: "ZURI HEALTH",
-    location: "Nairobi, Kenya",
-    period: "Jan 2023 - April 2023",
-    role: "Software Developer",
-    icon: <Bot className="w-6 h-6" />,
-    color: "from-green-500 to-emerald-500",
+    company: "Rightsify Group LLC", location: "Pasadena, California · Remote", period: "Jun 2023 – Aug 2024", role: "AI Engineer · Audio Generative LLMs",
     highlights: [
-      "Collaborated with platform engineers to design analytics pipelines extracting actionable insights from multi-country user data",
-      "Built conversational AI triage system using NLP and RAG architecture, serving 5,000+ users with 92% diagnostic accuracy",
-      "Reduced query resolution time by 30% through intelligent AI-powered system",
-      "Created semantic search through medical information that improved answer relevance by 40%",
-    ],
+      "Built custom transformer models for music generation with a five-engineer team, serving thousands of daily users from preprocessing through evaluation.",
+      "Designed distributed PyTorch training on AWS over 1M+ audio samples, cutting training time by 60% and compute spend by 30%; feedback-driven training improved model performance by 20%.",
+      "Introduced Docker and Kubernetes CI/CD for model deployment, reducing release time from four hours to 15 minutes; migrated 10TB+ of data from S3 to GCP.",
+    ], technologies: ["Python", "PyTorch", "Hugging Face", "AWS", "Docker", "Kubernetes", "GCP"],
   },
   {
-    company: "Google Crowdsource",
-    location: "Nairobi, Kenya",
-    period: "Aug 2021 - Present",
-    role: "AI Facilitator/Trainer - Part-time",
-    icon: <Users className="w-6 h-6" />,
-    color: "from-yellow-500 to-orange-500",
+    company: "Zuri Health", location: "Nairobi, Kenya", period: "Jan 2023 – Apr 2023", role: "Software Developer",
     highlights: [
-      "Trained participants on AWS SageMaker and GCP Vertex AI for deploying production ML models",
-      "Facilitated 11+ hands-on ML workshops covering LLM fine-tuning, NLP, and cloud ML deployment",
-      "Trained 33+ university students across Africa on ML technologies and cloud platforms",
-      "Managed community of 5,000+ AI contributors coordinating open-source initiatives",
-    ],
+      "Built a conversational NLP and RAG triage system serving 5,000+ users at 92% diagnostic accuracy, reducing query resolution time by 30% and human escalations by 35%.",
+      "Improved medical-information retrieval relevance by 40% and developed analytics over interaction data from four countries to guide product changes.",
+    ], technologies: ["Python", "NLP", "RAG", "Semantic search", "REST APIs", "Analytics"],
   },
   {
-    company: "Upwork",
-    location: "Nairobi, Kenya",
-    period: "Feb 2021 - Sep 2022",
-    role: "Machine Learning Engineer - Freelance",
-    icon: <Code className="w-6 h-6" />,
-    color: "from-red-500 to-pink-500",
+    company: "Upwork", location: "Nairobi, Kenya", period: "Feb 2021 – Sep 2022", role: "Machine Learning Engineer · Freelance",
     highlights: [
-      "Delivered 33+ custom AI solutions leveraging AWS and Azure ML services",
-      "Implemented semantic search and NLP systems for diverse client needs",
-      "Built production-ready GraphQL APIs with Express and React frontends",
-      "Integrated LLM capabilities for intelligent data processing across multiple projects",
-      "Developed distributed data processing pipelines using Apache Spark improving data ingestion speed by 65%",
-      "Created automated reporting systems in Tableau that saved clients 10+ hours weekly",
-    ],
+      "Delivered 33+ client software solutions using AWS and Azure ML, including semantic search, NLP and production GraphQL APIs with React applications.",
+      "Built distributed Apache Spark pipelines that improved data-ingestion speed by 65% and Tableau reports that saved clients 10+ hours each week.",
+    ], technologies: ["Python", "AWS", "Azure ML", "GraphQL", "Express", "React", "Apache Spark"],
   },
   {
-    company: "ANALYTICS VIDHYA",
-    location: "Gurgaon, India",
-    period: "Sep 2022 - Dec 2022",
-    role: "Technical Writer - Data (Seasonal)",
-    icon: <BookOpen className="w-6 h-6" />,
-    color: "from-amber-500 to-yellow-500",
+    company: "Analytics Vidhya", location: "Gurgaon, India · Seasonal", period: "Sep 2022 – Dec 2022", role: "Technical Writer · Data",
     highlights: [
-      "Wrote and published 3 tutorial articles for monthly data science blogathon",
-      "Created content on ETL pipelines for over 2000 rows of data extracted from OLAP and OLTP databases",
-      "Implemented application backends using Flask to integrate database APIs",
-      "Enabled interaction with remote Postgres database servers hosted locally and on cloud",
-      "Attracted over 50 readers and users to the platform through educational content",
-    ],
+      "Published three data-science tutorials on ETL workflows across OLAP and OLTP systems.",
+      "Implemented Flask backends integrating APIs for locally and cloud-hosted PostgreSQL databases, reducing query latency by 30%.",
+    ], technologies: ["Python", "Flask", "PostgreSQL", "ETL", "REST APIs"],
   },
   {
-    company: "TEENS IN AI",
-    location: "London, UK",
-    period: "Aug 2019 - Sep 2019",
-    role: "Machine Learning Trainer",
-    icon: <Zap className="w-6 h-6" />,
-    color: "from-cyan-500 to-blue-500",
+    company: "Google Crowdsource", location: "Nairobi, Kenya", period: "Aug 2021 – Present · Part-time", role: "AI Facilitator & Trainer",
     highlights: [
-      "Coached 5 teen girls out of 10 teams in Descriptive and Predictive Analytics using Azure Machine Learning",
-      "Guided approximately 10 students on using Azure ML to analyze access to affordable healthcare",
-      "Analyzed healthcare access by low-income households in 5 countries across Sub-Saharan Africa",
-    ],
+      "Facilitated 11+ hands-on workshops in LLM fine-tuning, NLP and cloud deployment for 33+ university students across Africa.",
+      "Support a 5,000+ contributor community; workshop participants achieved 45% higher post-workshop deployment assessment scores.",
+    ], technologies: ["AWS SageMaker", "GCP Vertex AI", "LLM fine-tuning", "NLP", "Training"],
+  },
+  {
+    company: "TEENS IN AI", location: "London, UK", period: "Aug 2019 – Sep 2019", role: "Machine Learning Trainer",
+    highlights: [
+      "Coached students in descriptive and predictive analytics with Azure Machine Learning, including a five-country analysis of access to affordable healthcare.",
+    ], technologies: ["Azure Machine Learning", "Predictive analytics", "Healthcare data"],
   },
 ]
 
 export default function CombinedServices() {
   return (
-    <div className="container mx-auto px-6 relative z-10 space-y-20">
-      {/* Services Section */}
-      <div>
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-5xl font-bold mb-6 philosophical-text">AI Engineering Services</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Comprehensive AI solutions that transform your business operations with measurable results
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">KES 2M+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Cost Savings Through Automation</div>
-            </div>
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">20+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Production AI Systems Deployed</div>
-            </div>
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">3M+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Daily Users Across Platforms</div>
-            </div>
-          </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-purple-200 dark:hover:border-purple-800 group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-            >
-              <div className="mb-4 p-4 rounded-lg bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 inline-block">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-3 dark:text-white">{service.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
-            </motion.div>
-          ))}
-        </div>
+    <section className="container mx-auto max-w-5xl px-6 py-12 sm:px-10" aria-labelledby="experience-title">
+      <div className="mb-9">
+        <p className="section-label mb-3">Where I’ve made an impact</p>
+        <h2 id="experience-title" className="hero-heading text-4xl font-bold text-foreground sm:text-5xl">Experience in production.</h2>
+        <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">A software engineering career built around shipping, evaluating and operating AI-enabled systems with teams across Africa and globally.</p>
       </div>
-
-      {/* Professional Experience Section */}
-      <div>
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-4xl font-bold mb-4 philosophical-text">Professional Experience</h3>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            6+ years architecting production-grade AI systems, full-stack applications, and data infrastructure that drive measurable business impact
-          </p>
-        </motion.div>
-
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-purple-500"
-            >
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                <div className="flex items-center mb-4 lg:mb-0">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${exp.color} mr-4 text-white`}>
-                    {exp.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-bold philosophical-text mb-1">{exp.company}</h4>
-                    <p className="text-xl font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
-                      <Briefcase className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
-                      {exp.role}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-gray-600 dark:text-gray-400">
-                  <p className="flex items-center mb-2 sm:mb-0">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    {exp.location}
-                  </p>
-                  <p className="flex items-center">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    {exp.period}
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {exp.highlights.map((highlight, idx) => (
-                  <div key={idx} className="flex items-start">
-                    <div className={`flex-shrink-0 h-5 w-5 rounded-full bg-gradient-to-r ${exp.color} flex items-center justify-center mt-1 mr-3`}>
-                      <span className="h-2 w-2 rounded-full bg-white"></span>
-                    </div>
-                    <span className="text-gray-700 dark:text-gray-300 leading-relaxed">{highlight}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className="relative flex flex-col gap-4 before:absolute before:bottom-5 before:left-[17px] before:top-5 before:w-px before:bg-border sm:gap-5">
+        {experiences.map((experience, index) => (
+          <motion.article key={experience.company} className="expertise-card relative ml-8 rounded-xl p-5 sm:ml-10 sm:p-6" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.2) }}>
+            <span className="absolute -left-[39px] top-7 size-3 rounded-full border-2 border-background bg-primary sm:-left-[47px]" aria-hidden="true" />
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div><p className="text-lg font-semibold text-foreground">{experience.company}</p><h3 className="mt-1 text-base font-medium text-primary">{experience.role}</h3></div>
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground sm:justify-end"><span className="inline-flex items-center gap-1"><CalendarDays className="size-3.5" aria-hidden="true" />{experience.period}</span><span className="inline-flex items-center gap-1"><MapPin className="size-3.5" aria-hidden="true" />{experience.location}</span></div>
+            </div>
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm leading-6 text-muted-foreground">{experience.highlights.map((highlight) => <li key={highlight} className="flex gap-3"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />{highlight}</li>)}</ul>
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label={`Technologies used at ${experience.company}`}>{experience.technologies.map((technology) => <li key={technology} className="rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground">{technology}</li>)}</ul>
+          </motion.article>
+        ))}
       </div>
-    </div>
+    </section>
   )
 }

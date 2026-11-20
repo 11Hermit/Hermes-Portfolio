@@ -1,168 +1,72 @@
 "use client"
 
-import Image from "next/image"
-import { Linkedin, Mail, ArrowDown, Phone, Sparkles } from "lucide-react"
-import { motion } from "framer-motion"
+import { Linkedin, Mail, ArrowDown, Phone, Sparkles, Github } from "lucide-react"
 
 const CodePattern = () => (
-  <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+  <svg className="absolute inset-0 size-full opacity-[0.035]" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
-      <pattern
-        id="pattern-circles"
-        x="0"
-        y="0"
-        width="50"
-        height="50"
-        patternUnits="userSpaceOnUse"
-        patternContentUnits="userSpaceOnUse"
-      >
-        <circle id="pattern-circle" cx="10" cy="10" r="1.5" fill="var(--color-accent)"></circle>
+      <pattern id="pattern-circles" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+        <circle cx="10" cy="10" r="1.5" fill="var(--color-accent)" />
       </pattern>
     </defs>
-    <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+    <rect width="100%" height="100%" fill="url(#pattern-circles)" />
   </svg>
 )
 
-const FloatingOrbs = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="orb w-96 h-96 left-1/4 top-1/4 animate-float-slow"></div>
-      <div className="orb w-64 h-64 right-1/4 bottom-1/4 animate-float"></div>
-      <div className="orb w-48 h-48 left-1/3 bottom-1/3 animate-float-fast"></div>
-    </div>
-  )
-}
-
 export default function Hero() {
+  const openProjects = () => {
+    void import("./Projects").catch(() => undefined)
+    window.dispatchEvent(new CustomEvent("navigateToSection", { detail: { sectionId: "projects" } }))
+  }
+
   return (
-    <div
-      id="hero"
-      className="min-h-screen relative overflow-hidden hero-glow"
-      style={{ backgroundColor: 'var(--color-bg)' }}
-    >
-      {/* Programming-themed Background */}
-      <div className="absolute inset-0 z-0">
-        <CodePattern />
-      </div>
-
-      {/* Subtle teal orbs */}
-      <FloatingOrbs />
-
-      {/* Agentic AI Illustration */}
-      <div className="absolute inset-0 z-0 opacity-10">
-        <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/agentic%20ai-rzv4kWbyf0ZbxOrSYS6nIMENS9KNgi.png"
-          alt="Agentic AI Workflow"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 min-h-[70vh]">
-          <motion.div
-            className="lg:w-3/5 text-center lg:text-left"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div 
-              className="mb-6 inline-flex items-center px-4 py-2 rounded-full glass-effect"
-              style={{ borderColor: 'var(--color-border)' }}
+    <section className="hero-glow relative min-h-screen overflow-hidden" aria-labelledby="hero-title">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true"><CodePattern /></div>
+      <div className="container relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pb-16 pt-28 sm:px-10">
+        <div className="max-w-4xl">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-2 text-sm text-primary">
+            <Sparkles className="size-4" aria-hidden="true" />
+            <span>AI Software Engineer · Nairobi, Kenya</span>
+          </div>
+          <p className="mb-3 font-mono text-sm uppercase tracking-[0.24em] text-muted-foreground">Ashtone Onyango Omondi</p>
+          <h1 id="hero-title" className="hero-name max-w-4xl text-5xl leading-[0.98] text-foreground sm:text-7xl lg:text-8xl">
+            Engineering AI for the real world.
+          </h1>
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            I build production software and agentic AI systems that people depend on—from healthcare triage and caregiver support to reliable LLM evaluation and the infrastructure behind it.
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground/80">
+            Six-plus years across backend engineering, APIs, cloud infrastructure and CI/CD. Biomedical engineer by training; focused on safe, measurable software for social impact.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={openProjects}
+              className="btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold"
             >
-              <Sparkles className="w-4 h-4 mr-2" style={{ color: 'var(--color-accent)' }} />
-              <span 
-                className="text-sm font-medium"
-                style={{ color: 'var(--color-accent)' }}
-              >
-                Senior AI Engineer · Nairobi, Kenya
-              </span>
-            </div>
-
-            <h1 
-              className="hero-name text-5xl md:text-6xl lg:text-7xl mb-8"
-              style={{ color: 'var(--color-text)' }}
+              Explore selected work <ArrowDown className="size-4" aria-hidden="true" />
+            </button>
+            <a
+              href="/Ashtone-Onyango-AI-Software-Engineer.pdf"
+              download="Ashtone-Onyango-AI-Software-Engineer.pdf"
+              className="btn-secondary inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold"
             >
-              Ashtone Onyango
-            </h1>
-
-            <div className="max-w-4xl mb-8">
-              <p 
-                className="text-xl md:text-2xl mb-6 leading-relaxed"
-                style={{ color: 'var(--color-text-muted)' }}
-              >
-                I engineer production-grade AI systems from the ground up — training transformer models from scratch, 
-                building RL environments, and deploying agentic systems that actually work. 
-                From attention mechanisms to distributed training pipelines, I turn research papers into 
-                shipping code. 6+ years. 22+ production systems. Real quantifiable impact.
-              </p>
-            </div>
-
-            <div className="flex justify-center lg:justify-start space-x-4 mb-8">
-              <a
-                href="https://www.linkedin.com/in/dao-ashtone/"
-                className="social-btn p-3 rounded-full transition-all duration-300"
-                aria-label="LinkedIn Profile"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a
-                href="mailto:ashtone@wanailabs.org"
-                className="social-btn p-3 rounded-full transition-all duration-300"
-                aria-label="Email Contact"
-              >
-                <Mail className="w-6 h-6" />
-              </a>
-              <a
-                href="tel:+254740497975"
-                className="social-btn p-3 rounded-full transition-all duration-300"
-                aria-label="Phone Contact"
-              >
-                <Phone className="w-6 h-6" />
-              </a>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <motion.button
-                onClick={() => {
-                  window.dispatchEvent(new CustomEvent("navigateToSection", { detail: { sectionId: "projects" } }))
-                }}
-                className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Explore My Work
-                <ArrowDown className="w-5 h-5" />
-              </motion.button>
-              <motion.a
-                href="/Resume - Ashtone Onyango.pdf"
-                download="Resume - Ashtone Onyango.pdf"
-                className="btn-secondary inline-flex items-center gap-2 px-8 py-4 rounded-full transition-all duration-300 text-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Download Resume
-              </motion.a>
-            </div>
-          </motion.div>
+              Download résumé
+            </a>
+          </div>
+          <div className="mt-8 flex items-center gap-3" aria-label="Contact and profiles">
+            <a href="https://www.linkedin.com/in/dao-ashtone/" className="social-btn rounded-full p-3" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer"><Linkedin className="size-5" /></a>
+            <a href="https://github.com/11Hermit" className="social-btn rounded-full p-3" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer"><Github className="size-5" /></a>
+            <a href="mailto:ashtoneonyango@gmail.com" className="social-btn rounded-full p-3" aria-label="Email Ashtone"><Mail className="size-5" /></a>
+            <a href="tel:+254740497975" className="social-btn rounded-full p-3" aria-label="Call Ashtone"><Phone className="size-5" /></a>
+          </div>
+          <div className="mt-14 grid max-w-2xl grid-cols-3 gap-5 border-t border-border pt-6">
+            <div><p className="stat-number text-3xl font-bold">20+</p><p className="mt-1 text-xs leading-5 text-muted-foreground sm:text-sm">AI systems shipped</p></div>
+            <div><p className="stat-number text-3xl font-bold">5,000+</p><p className="mt-1 text-xs leading-5 text-muted-foreground sm:text-sm">triage users served</p></div>
+            <div><p className="stat-number text-3xl font-bold">1,000+</p><p className="mt-1 text-xs leading-5 text-muted-foreground sm:text-sm">caregivers supported</p></div>
+          </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-      >
-        <div 
-          className="w-1 h-12 rounded-full animate-pulse"
-          style={{ backgroundColor: 'var(--color-accent)' }}
-        ></div>
-      </motion.div>
-    </div>
+    </section>
   )
 }
